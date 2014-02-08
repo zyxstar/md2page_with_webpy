@@ -1,0 +1,61 @@
+$def with (note,res_base_url)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Markdown To Page 的请求方式</title>
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/markdown.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/md_note.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/index.css"/>
+</head>
+
+<body style='zoom:1'>
+<h1>Markdown To Page 的请求方式</h1>
+
+<ul>
+
+<li>
+    <h3>GET(表单方式)</h3>
+<form name="form2" method='get' action='/gen_md' target='_blank'>
+<label for='txt_src'>src[必填]</label>
+<input type='text' name='src' id='txt_src' value='https://raw2.github.com/zyxstar/markdown_note/master/docs/Manual.md'/>
+<label for='txt_title'>title[选填], 默认从src中提取的文件名作为title</label>
+<input type='text' name='title' id='txt_title' value='Manual'/>
+<label for='txt_encoding'>encoding[选填], 文件的编码格式，默认utf-8</label>
+<input type='text' name='encoding' id='txt_encoding' value='utf-8'/>
+
+<input type='submit'/>
+</form>
+
+</li>
+
+<li>
+    <h3>GET(链接方式)</h3>
+    需要将参数(src,title,encoding)预先urlencode(utf-8)，如src的参数"https://raw2.github.com/zyxstar/markdown_note/master/docs/Manual.md" 转换成 "https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmarkdown_note%2Fmaster%2Fdocs%2FManual.md"
+    <br/>
+    如：
+    <a target='_blank' href='http://chinapub.duapp.com/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmarkdown_note%2Fmaster%2Fdocs%2FManual.md'>我是Manual的链接</a>
+<br/>
+    ps. 如果不方便urlencode，偷懒的方式是使用GET的表单方式，在新打开的浏览器窗口，复制地址栏的内容
+
+<li>
+    <h3>POST</h3>
+  <form name="form2" method='post' action='/gen_md' target='_blank'>
+<label for='txt_note'>note[必填]，输入markdown文本</label>
+<textarea rows='15' name='note' id="txt_note">
+$note
+</textarea>
+<label for='txt_title'>title[必填]</label>
+<input type='text' name='title' id='txt_title' value='Manual'/>
+<label for='txt_based_url'>based_url[选填], 当文档中的链接(如img, a)使用相对路径时，将依此修复为绝对路径的url</label>
+<input type='text' name='based_url' id='txt_based_url' value='https://raw2.github.com/zyxstar/markdown_note/master/docs/Manual.md'/>
+<input type='submit'/>
+</form>
+</li>
+</ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+.handler{
+    /*border: 1px blue solid;*/
+    z-index: 99;
+}
+.CodeMirror {
+    height: 100% !important;
+}
+.CodeMirror-activeline-background {
+    background: #e8f2ff !important;
+}
+.CodeMirror-focused .cm-matchhighlight {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFklEQVQI12NgYGBgkKzc8x9CMDAwAAAmhwSbidEoSQAAAABJRU5ErkJggg==);
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+.cm-comment{
+/*  color: #008200 !important;
+  font-style: italic !important;*/
+}
+#txt_result{
+  background: black !important;
+  color:white !important;
+  font-family: 'Courier New' !important;
+}
+#content{
+  margin-left: 8px;
+  margin-right: 10px;
+}
+#actions li label{
+  display: inline-block;
+  color: #fff;
+  margin-top: 13px;
+  padding: 0 10px;
+}

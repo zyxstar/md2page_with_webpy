@@ -1,0 +1,48 @@
+img.img-box{
+    width:150px;
+    cursor: pointer;
+    border: 5px solid #fff;
+    opacity: 0.7;
+}
+img.img-box:hover{
+    opacity: 1;
+    border-color: #ddd;
+    box-shadow: 0 0 2px #ddd;
+}
+
+div.img-show {
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin:-100px 0 0 -200px;
+/*    width:400px;
+    height:200px;*/
+    border : 10px solid rgba(238, 238, 238, 0.24);
+    box-shadow: 0 2px 10px #ccc;
+    z-index:999;
+}
+
+i.img-close {
+    position: absolute;
+    top: -26px;
+    right: -28px;
+    width: 36px;
+    height: 36px;
+    background: transparent url('../css/imgs/multipic_ico.png') 0 0 no-repeat;;
+    cursor: pointer;
+    z-index: 1103;
+}
+div.img-close:hover {
+    background-position: 0 -41px;
+}
+
+div.img-overlay{
+    position:absolute;
+    /*top: -10px;*/
+    width: 100%;
+    height: 100%;
+    background-color: rgb(119, 119, 119);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+    z-index:998;
+}
