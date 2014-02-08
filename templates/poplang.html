@@ -1,0 +1,113 @@
+﻿$def with (res_base_url)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/normalize.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/elusive-webfont.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/screen.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/vendor/CodeMirror-3.12/lib/codemirror.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/poplang.css"/>
+
+</head>
+
+<body style="zoom: 1;">
+
+<div>
+
+    <div id="header">
+
+        <div id="actions">
+            <ul class="actionCont collapsed">
+                <li class="actionItem">
+                    <a class="aiButton" id="run" title="Run" href="javascript:void(0);">
+                        <span class="icon-">►</span>
+                        Run
+                    </a>
+                </li>
+                <li class="actionItem" style="margin-left:30px">
+                 <label>
+                  <input type="checkbox" id="chk_online" name="chk_online" />
+                  Online
+                  </label>
+                  <select name='sel_lang' id='sel_lang'>
+                  </select>
+                </li>
+                <li class="actionItem" id="runnerContainer">
+<!--                   <applet code='CmdRunner.class' id='cmdRunner' codebase='.' archive = '../applet/CmdRunner.jar' width='0' height='0'></applet> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div id="content" style=" opacity: 1;">
+
+            <div class="window top" id="panel_code">
+                <span class="window_label" id='label_code' style="opacity: 0.8;">Code</span>
+                <textarea id="txt_code"></textarea>
+            </div>
+
+
+            <div class="handler handler_horizontal" ></div>
+
+
+            <div class="window bottom" id="result" >
+                <span class="window_label" style="opacity: 0.8;">Result</span>
+                <textarea id="txt_result"></textarea>
+
+                <form name='frm_online' method='post' target='ifr_result' action='/exec_lang'>
+                  <input type='hidden' name='lang'/>
+                  <input type='hidden' name='lang_alias'/>
+                  <input type='hidden' name='code'/>
+                  <input type='hidden' name='exec_type'/>
+                </form>
+
+                <iframe name='ifr_result' id="ifr_result"></iframe>
+            </div>
+            <div class="shim"></div>
+
+
+    </div>
+
+
+
+
+
+
+
+<!-- <textarea id='txt_code' style='width:100%;height:50%' rows='18'></textarea>
+<br/>
+<input type='button'  id='btn_run' value='Run'/>
+<br/>
+<textarea id='txt_result' style='width:100%;height:40%;' rows='15'></textarea> -->
+
+</div>
+
+
+
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/lib/codemirror.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/ruby/ruby.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/python/python.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/clike/clike.js'></script>
+<!-- <script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/clike/go.js'></script> -->
+
+
+
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/mode/multiplex.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/selection/active-line.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/edit/closebrackets.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/search/searchcursor.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/search/match-highlighter.js'></script>
+
+
+<script type="text/javascript" src='$res_base_url/js/common.js'></script>
+<script type="text/javascript" src='$res_base_url/js/parsecode.js'></script>
+<script type="text/javascript" src='$res_base_url/js/bardrageer.js'></script>
+<script type="text/javascript" src='$res_base_url/js/poplang.js'></script>
+
+</body>
+
+</html>

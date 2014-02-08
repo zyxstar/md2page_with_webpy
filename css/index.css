@@ -1,0 +1,10 @@
+label{
+    display:block;
+}
+input[type=text]{
+
+    width: 600px;
+}
+textarea{
+    width: 600px;
+}

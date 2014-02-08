@@ -1,0 +1,98 @@
+
+ul.TOCEntry {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+ul.TOCEntry li {
+    list-style: none;
+    display: block;
+    margin-left: -20px;
+    font-size: 1.1em;
+}
+
+ul.TOCEntry li a.current{
+    background-color: #FFE7C3;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 2px #ccc;
+    box-shadow: 1px 1px 2px #ccc;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin-left: -2px;
+    padding: 0 2px;
+    /*font-weight: bold;*/
+    /*text-decoration: underline;*/
+}
+ul.TOCEntry li a.curparent{
+    /*font-weight: bold;*/
+    text-decoration: underline;
+}
+
+ul.TOCEntry li a.current:before {
+    /*content: "►";*/
+}
+ul.TOCEntry li a.has-img i{
+    margin-left: 5px;
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    background: transparent url(../css/imgs/catalog-hasmulti.png) 1px 4px no-repeat;
+}
+
+ul.TOCEntry li li {
+    font-size: 0.95em;
+}
+
+ul.TOCEntry a {
+    color: #af670a;
+    text-decoration: none;
+}
+
+ul.TOCEntry a:hover, a:focus {
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px #ddd;
+}
+
+ul.TOCEntry i.expand {
+    display: inline-block;
+/*    width: 16px;
+    margin-left: -16px;
+    height: 16px;
+    line-height: 16px;*/
+    width: 14px;
+    margin-left: -14px;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 0;
+    /*font-weight: bold;*/
+    background-image: url("../css/imgs/glyphicons-halflings.png");
+    /*background-image: url(sprite.png);*/
+}
+
+ul.TOCEntry i.expand:hover {
+    background-color: rgba(255,0,0,.20);
+}
+
+ul.TOCEntry i.open {
+    background-position: -433px -96px;
+    /*background-position:2px -638px;*/
+}
+
+ul.TOCEntry i.close {
+    background-position: -408px -96px;
+    /*background-position:2px -688px;*/
+}
+
+li.TOCSectNum:after {
+    content: ":";
+}
+
+
+
+/*ul.TOCEntry li ul li ul li i.open + a + ul li{
+    background: url(http://static-img2.cdn.aliyuncs.com/images/www-summerwind/treeview_dashline.gif) 0 0 no-repeat;
+    padding-left: 34px;
+    margin-left: -44px;
+
+}*/

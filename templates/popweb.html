@@ -1,0 +1,188 @@
+﻿$def with (res_base_url)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/normalize.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/elusive-webfont.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/screen.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/vendor/CodeMirror-3.12/lib/codemirror.css"/>
+   <link rel="stylesheet" type="text/css" href="$res_base_url/css/popweb.css"/>
+
+</head>
+
+<body style="zoom: 1;">
+
+    <div id="header">
+        <div id="branding">
+            <p id="name">
+                <a title="" id="home">
+                    <span></span>
+                </a>
+            </p>
+        </div>
+
+        <div id="actions">
+
+            <ul class="actionCont collapsed">
+                <li class="actionItem">
+                    <a class="aiButton" id="run" title="Run" href="javascript:void(0);">
+                        <span class="icon-">►</span>
+                        Run
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+    </div>
+    <div id="sidebar" style="opacity: 1;">
+    <h3>提示:</h3>
+        <ul>
+        <li>
+           在编辑框内按 <strong>F11</strong> 进入全屏, 再次按 <strong>F11/Esc</strong> 通出全屏
+        </li>
+  </ul>
+
+    <h3>常用CDN:</h3>
+ <ul>
+    <li>可直接在html编辑器中包含进来</li>
+        <li>
+            <a target='_blank' href='https://developers.google.com/speed/libraries/devguide'>Google Hosted Libraries</a>
+        </li>
+        <li>
+            <a target='_blank' href='http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs'>Baidu CDN Library</a>
+        </li>
+        <li>
+            <a target='_blank' href='http://lib.sinaapp.com/'>Sina Public Resources</a>
+        </li>
+        <li>
+            <a target='_blank' href='http://jscdn.upai.com/'>UpYun Library</a>
+        </li>
+
+
+
+        </ul>
+
+    <h3>在js编辑器中引入库:</h3>
+     <ul>
+    <li>
+键入"<code>//import «lib.version»</code>"</li>
+  <li>
+目前支持的库有:
+       <ul>
+        <li>jquery.1.9.0</li>
+        <li>jquery.2.0.0</li>
+        <li>backbone.0.9.2</li>
+        <li>backbone.1.0.0</li>
+        <li>underscore.1.4.3</li>
+        <li>underscore.1.5.2</li>
+        <li>json2</li>
+        <li>bootstrap.2.3.2</li>
+        <li>angular.1.2.9</li>
+        <li>knockout.3.0.0</li>
+ </ul>
+   </li>
+    </ul>
+     <!--    <div id="sidebar-bottom"></div>
+        <a class="keyActions" href=""></a> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="content" style=" opacity: 1;">
+
+        <fieldset class="column left">
+            <div class="window top" id="panel_html">
+                <span class="window_label" style="opacity: 0.8;">HTML</span>
+                <textarea id="code_html"></textarea>
+            </div>
+
+
+            <div class="handler handler_horizontal" ></div>
+
+
+            <div class="window bottom" id="panel_js" >
+                <span class="window_label" style="opacity: 0.8;">JavaScript</span>
+                <textarea id="code_js"></textarea>
+            </div>
+            <div class="shim"></div>
+        </fieldset>
+
+
+
+
+
+
+        <div class="handler" id="handler_vertical"></div>
+
+
+
+
+
+        <fieldset class="column right" >
+            <div class="window top" id="panel_css" data-panel_type="css">
+
+                <span class="window_label" style="opacity: 0.8;">CSS</span>
+                <textarea id="code_css"></textarea>
+            </div>
+            <div class="handler handler_horizontal" ></div>
+            <div id="result" class="window bottom">
+<!--                 <iframe name="result" id='iresult' frameborder="0"></iframe> -->
+                 <span class="window_label" style="opacity: 0.8;">Result <i></i></span>
+
+
+            </div>
+        <div class="shim"></div>
+        </fieldset>
+
+    </div>
+
+
+
+
+
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/lib/codemirror.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/xml/xml.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/css/css.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/htmlmixed/htmlmixed.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/mode/javascript/javascript.js'></script>
+
+
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/mode/multiplex.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/selection/active-line.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/edit/closebrackets.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/edit/closetag.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/search/searchcursor.js'></script>
+<script type="text/javascript" src='$res_base_url/vendor/CodeMirror-3.12/addon/search/match-highlighter.js'></script>
+
+
+<script type="text/javascript" src='$res_base_url/js/common.js'></script>
+<script type="text/javascript" src='$res_base_url/js/parsecode.js'></script>
+<script type="text/javascript" src='$res_base_url/js/bardrageer.js'></script>
+<script type="text/javascript" src='$res_base_url/js/popweb.js'></script>
+
+</body>
+
+</html>

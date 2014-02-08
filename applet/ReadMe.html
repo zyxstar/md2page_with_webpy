@@ -1,0 +1,153 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>ReadMe</title>
+  <style type="text/css">
+
+ol li{
+  margin-top: 10px;
+}
+
+ol li ul li{
+  font-weight: bold;
+}
+
+ol li ul li em{
+  font-size: 0.9em;
+  font-weight: normal;
+}
+label{
+  margin-right: 30px;
+}
+label input{
+  margin-left: 0;
+}
+  </style>
+
+</head>
+<body>
+  <applet code="CmdRunner.class" id="cmdRunner" codebase="." archive = "CmdRunner.jar" width="120" height="30"></applet>
+  <br/>
+  <form name="form1">
+    <label>
+      python
+      <input type="radio" name="language" checked='checked' value="python"/>
+    </label>
+    <label>
+      ruby
+      <input type="radio" name="language" value="ruby"/>
+    </label>
+    <label>
+      c#
+      <input type="radio" name="language" value="csharp"/>
+    </label>
+    <label>
+      java
+      <input type="radio" name="language" value="java"/>
+    </label>
+    <br/>
+  </form>
+  <textarea style="width:48%" rows='20' id="txt_code"></textarea>
+
+  <textarea style="width:48%;background:black;color:white;font-family: \'Courier New\';'"  rows='20' id="txt_result"></textarea>
+  <br/>
+  <input type="button" value="Run" onclick="runCode()"/>
+
+  <h3>
+    Applet签名与打包
+    <a target="_blank" href="http://hi.baidu.com/zengzhf/item/9193fa17e77ec223f7625c4c">参考</a>
+  </h3>
+  <ol>
+    <li>如果已生成了密匙与证书，可直接运行本目录下的build.bat，否则请按下面步骤</li>
+    <li>
+      压缩你的class类文件为jar包
+      <ul>
+        <li>javac CmdRunner.java</li>
+        <li>jar cvf CmdRunner.jar CmdRunner.class</li>
+      </ul>
+    </li>
+    <li>
+      使用keytool工具生成密匙库
+      <ul>
+        <li>
+          keytool -genkey -keystore mdnote.store -alias md -validity 3650
+          <br/> <em>mdnote.store 是密匙库的名称，可以随意修改，后缀请不要修改；-validity 3650 表示的是有效期是3650天；md为别名
+            <br/>
+            执行上述命令后，DOS窗口中会提示你输入keystore的密码、你的姓名、组织单位等等信息。这里要注意的是输入密码请记住，后面要用到的。在最后，我们输入y确认信息。然后再直接回车设置mbq的主密码和store密码一致即可</em>
+        </li>
+      </ul>
+    </li>
+    <li>
+      使用keytool工具导出签名时用到的证书
+      <ul>
+        <li>
+          keytool -export -keystore mdnote.store -alias md -file md.cert
+          <br/> <em>mdnote.store 就是第二步生成的密匙库名称；md 也是在第二步中我们指定的别名；md.cert 为我们生成的证书的名称，可以自己修改名称，注意后缀不要改
+            <br/>
+            命令执行成功，我们会在当前目录下找到一个md.cert文件，这个就是我们刚才生成的证书</em>
+        </li>
+      </ul>
+    </li>
+    <li>
+      使用jarsigner工具签名jar压缩文档
+      <ul>
+        <li>
+          jarsigner -keystore mdnote.store CmdRunner.jar md
+          <br/>
+          <em>
+            mdnote.store 就是第二步生成的密匙库名称；CmdRunner.jar 就是我们这第一步压缩的jar文档；md 是提供者的名称，我们这里设置为我们的别名
+            <br/>
+            修改客户端的程序是需要重新打包和签名
+          </em>
+        </li>
+      </ul>
+    </li>
+    <li>
+      创建mynote.policy文件
+      <ul>
+        <li>
+          在当前目录下创建一个mynote.policy文件，其内容如下
+          <pre>
+keystore"file:mynote.store","JKS";
+grantsignedBy"md"
+{
+  permission java.security.AllPermission;
+};</pre>
+          <em>
+            这个文件的意思就是说让所有由md签名的applet都可以拥有所有权限。
+            <br/>
+            上面文件好像没起作用，起作用的还是在Java\jre7\lib\security\java.policy文件(请确定该java版本是浏览器使用的版本)里最后加上`permission java.security.AllPermission;`
+          </em>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</body>
+</html>
+
+<script type="text/javascript" src="//rawgithub.com/zyxstar/markdown2page/master/res/js/parsecode.js"></script>
+
+<script type="text/javascript">
+
+var runner = document.getElementById('cmdRunner');
+var txt_code = document.getElementById('txt_code');
+var txt_result = document.getElementById('txt_result');
+
+var lang="";
+var parser=null;
+Array.prototype.slice.apply(document.forms['form1'].language).forEach(function(r){
+    r.onclick=function(){
+      if(r.checked) lang=r.value;
+      parser = new Native_code_parser(runner,lang);
+      txt_result.value = parser.get_version();
+    };
+});
+
+document.forms['form1'].language[0].click();
+
+function runCode(){
+  var result=parser.exec_code(txt_code.value);
+  txt_result.value+= parser.get_prompt()+' '+result;
+}
+
+</script>
