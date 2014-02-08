@@ -1,0 +1,234 @@
+@font-face {
+    font-family: cnword;
+    src: url('../font/senty.ttf') format("truetype"),
+      url('../font/senty.eot?#iefix') format('embedded-opentype');
+}
+@font-face {
+    font-family: angelina;
+    src: url('../font/angelina.ttf') format("truetype"),
+         url('../font/angelina.eot') format("opentype");
+}
+body {
+    /*width:100%;
+    margin:0 auto;*/
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    background-color: #FFF;
+}
+
+div {
+    display: block;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+h1{
+    font-size: 2em;
+}
+h2{
+    font-size: 1.7em;
+}
+h3{
+    font-size: 1.5em;
+}
+h4{
+    font-size: 1.3em;
+}
+
+p {
+    /*margin-bottom: 0.3em;*/
+}
+
+a:hover, a:active {
+    outline: 0;
+}
+a{
+    color:#08c;
+/*    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
+    padding-right: 13px;*/
+
+}
+a:hover, a:focus {
+    color: #005580;
+    text-decoration:underline;
+
+}
+a:visited {
+    color:#08c;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 2px;
+    width: 95%;
+    overflow: auto;
+    border-color: gray;
+    /*display: block;*/
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+table tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+table tr:nth-child(2n) {
+    background-color: rgba(240, 240, 240, 0.4);
+}
+
+table tr:hover td{
+   background-color:#eee;
+}
+
+table td, table th {
+    display: table-cell;
+    vertical-align: inherit;
+    border: 1px solid #ddd;
+    padding: 3px 13px;
+}
+
+table th {
+    font-weight: bold;
+}
+strong {
+    /*color: black;*/
+}
+strong em{
+    font-style: normal;
+    color: red;/*#D0434D;*/
+    font-weight: bold;
+}
+
+#md_wrap {
+    z-index: 0;
+}
+
+#md_content {
+    position: relative;
+    margin: 10px;
+    padding: 10px 330px 10px 20px;
+    z-index: 0;
+}
+#md_content.noraml{
+    padding-right: 330px;
+}
+#md_content.wider{
+    padding-right: 20px;
+}
+#md_toc_wrap {
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+}
+#md_toc_show {
+    top: 0;
+    right: 0;
+    z-index: 99;
+}
+
+#md_toc {height: 80%;
+    border-top: 1px dotted #af670a;
+    border-bottom: 1px dotted #af670a;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    width: 260px;
+    padding: 10px 30px 10px 10px;
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+#md_content li{
+    margin-top: 8px;
+}
+div#title {
+    /*margin: 8px 0 -8px 8px; can affect overlay_div top*/
+    padding: 18px 0 0 28px;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    color: #af670a;
+    text-shadow: 3px 3px 4px #DDD;
+}
+
+.syntaxhighlighter {
+    margin: 0 !important;
+}
+
+.syntaxhighlighter .toolbar {
+    /*display: none;*/
+}
+.syntaxhighlighter .line{
+    line-height: 1.2em !important;
+}
+.syntaxhighlighter .line.alt1 {
+    background-color: #FFF !important;
+}
+
+.syntaxhighlighter .line.alt2 {
+    background-color: rgba(240, 240, 240, 0.4) !important;
+}
+
+.syntaxhighlighter .line.highlighted.number {
+    color: #000!important
+}
+
+.syntaxhighlighter .string, .syntaxhighlighter .string a {
+    color: #A31515 !important;
+}
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
+    font-style: italic !important;
+}
+a.right {
+    float: right;
+}
+
+a.toclink,a.toclink:link,a.toclink:hover,a.toclink:active {
+    text-decoration: none;
+}
+
+a.toclink {
+    /*font-family: cnword;*/
+    display: inline-block;
+    color: #af670a;
+    text-align: center;
+    line-height: 2em;
+}
+
+a.thin{
+    font-family: "STXihei" "微软雅黑";
+    /*font-weight: bold;*/
+    width: 71.9px;
+}
+
+a.wider {
+    font-weight: bold;
+    width: 80px;
+}
+
+a.toclink:hover {
+    color: #fff;
+    background-color: #F38307;
+}
+
+a.toclink:active {
+    background-color: #E85205;
+}
+div.box {
+    background-color: #FFF;
+    position: fixed;
+    z-index: 1;
+    -webkit-box-shadow: 0 2px 10px #ccc;
+    -moz-box-shadow: 0 2px 10px #ccc;
+    box-shadow: 0 2px 10px #ccc;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop));
+}

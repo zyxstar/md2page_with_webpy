@@ -1,0 +1,74 @@
+$def with (title,content,res_base_url)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/vendor/syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/vendor/syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/> -->
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/markdown.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/md_note.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/toc.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/imgbox.css" />
+<!--     <link rel='stylesheet' type='text/css' media='screen' href='$res_base_url/css/gmail-scrollbar.css' /> -->
+    <title>$title</title>
+</head>
+<body style='zoom:1'>
+<div id="md_wrap">
+  <div id="md_toc_wrap" class='box'>
+    <a onclick="expand_toc('md_toc',1);" class="toclink thin" href="javascript:void(0);">Level1</a>
+    <a onclick="expand_toc('md_toc',2);" class="toclink thin" href="javascript:void(0);">Level2</a>
+    <a onclick="expand_toc('md_toc',3);" class="toclink thin" href="javascript:void(0);">Level3</a>
+    <a onclick="expand_toc('md_toc',6);" class="toclink thin" href="javascript:void(0);">Level4+</a>
+    <div id="md_toc"></div>
+    <a onclick='hide_toc()' class="toclink thin" href="javascript:void(0);">Hide→</a>
+    <a onclick='goto_top()' class="toclink thin" href="javascript:void(0);">Top↑</a>
+    <a class="toclink thin right" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmarkdown_note%2Fmaster%2Fdocs%2FManual.md">Help?</a>
+  </div>
+  <div id="md_toc_show" class='box' style='display:none'>
+    <a onclick='show_toc()' class="toclink wider" href="javascript:void(0);">←Show</a>
+  </div>
+ <div id="title">$title</div>
+ <div id="md_content">
+    $:content
+ </div>
+</div>
+<a name="footer"></a>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushAS3.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushErlang.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushPerl.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushXml.js"></script>
+
+<script type="text/javascript" src="$res_base_url/vendor/markdown/Markdown.Converter.js"></script>
+
+<script type="text/javascript" src="$res_base_url/js/common.js"></script>
+<script type="text/javascript" src="$res_base_url/js/toc.js"></script>
+<script type="text/javascript" src="$res_base_url/js/parsemarkdown.js"></script>
+<script type="text/javascript" src="$res_base_url/js/parsecode.js"></script>
+<script type="text/javascript" src="$res_base_url/js/parsetable.js"></script>
+<script type="text/javascript" src="$res_base_url/js/routelang.js"></script>
+<script type="text/javascript" src="$res_base_url/js/imgbox.js"></script>
+
+<script type="text/javascript" src="$res_base_url/vendor/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="$res_base_url/js/md_note.js"></script>
+
+ </body>
+</html>
