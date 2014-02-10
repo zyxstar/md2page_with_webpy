@@ -117,12 +117,13 @@ function route_lang_handler(pre_el) {
     "csharp": lang_hand1er("csharp",true,true),
     "python": lang_hand1er("python",true,true),
     "ruby": lang_hand1er("ruby",true,true),
-    "js": lang_hand1er("js"),
+    "js": lang_hand1er("js",false,false),
     "java": lang_hand1er("java",true,true),
+    "bash": lang_hand1er("bash",false,true),
   }
 
   var default_handlers = function(){
-    var langs = ["as3","bash","css","delphi","erlang","groovy","html","pascal","perl","php","powershell","scala","shell","sql","xml"];
+    var langs = ["as3","css","delphi","erlang","groovy","html","pascal","perl","php","powershell","scala","shell","sql","xml"];
     return lang_hand1er(langs.filter(function(_lang){return _lang===language})[0] || 'plain', false, false);
   };
   return extend_handlers[language] || default_handlers();
