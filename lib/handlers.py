@@ -27,7 +27,7 @@ class index:
 
     def GET(self):
         try:
-            _sample_note = urllib2.urlopen(SAMPLE_NOTE_URL, timeout=5).read()
+            _sample_note = urllib2.urlopen(SAMPLE_NOTE_URL, timeout=10).read()
         except:
             _sample_note = ""
         return render.index(_sample_note, RES_BASE_URL_PATH)
@@ -69,7 +69,7 @@ class gen_md:
     def GET(self):
         try:
             _query = web.input(src='', title='', encoding='utf-8')
-            _md_text = urllib2.urlopen(_query.src, timeout=5).read()
+            _md_text = urllib2.urlopen(_query.src, timeout=10).read()
             _title = os.path.basename(_query.src).split(
                 '.')[0] if _query.title == '' else _query.title
             _title = urllib.unquote_plus(_title.encode('utf-8'))
