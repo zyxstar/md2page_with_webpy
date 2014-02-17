@@ -13,6 +13,7 @@ RES_BASE_URL_PATH = None
 render = None
 
 urls = ('/', 'index',
+        '/usage','usage',
         '/echo', 'echo',
         '/gen_md', 'gen_md',
         '/popup/lang', 'poplang',
@@ -22,15 +23,19 @@ urls = ('/', 'index',
 
 all_handlers = globals()
 
-
 class index:
+    def GET(self):
+        return "index"
+
+
+class usage:
 
     def GET(self):
         try:
             _sample_note = urllib2.urlopen(SAMPLE_NOTE_URL, timeout=10).read()
         except:
             _sample_note = ""
-        return render.index(_sample_note, RES_BASE_URL_PATH)
+        return render.usage(_sample_note, RES_BASE_URL_PATH)
 
 
 class poplang:
@@ -69,6 +74,7 @@ class gen_md:
     def GET(self):
         try:
             _query = web.input(src='', title='', encoding='utf-8')
+            if _query.src == '': raise web.seeother('/usage')
             _md_text = urllib2.urlopen(_query.src, timeout=10).read()
             _title = os.path.basename(_query.src).split(
                 '.')[0] if _query.title == '' else _query.title
@@ -79,6 +85,7 @@ class gen_md:
 
     def POST(self):
         _query = web.input(note='', title='', based_url='')
+        if _query.note == '': raise web.seeother('/usage')
         return self.render_md(_query.title, _query.note, _query.based_url)
 
     def render_md(self, title, md_text, based_url):
