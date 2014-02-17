@@ -25,8 +25,7 @@ all_handlers = globals()
 
 class index:
     def GET(self):
-        _query = urllib.urlencode(dict(src=SAMPLE_NOTE_URL, title="Zyxstar's Notes Home"))
-        web.seeother('/gen_md?' + _query)
+        return gen_md().urlopen_md(src=SAMPLE_NOTE_URL, title="Manual", encoding='utf-8')
 
 class usage:
 
@@ -72,23 +71,29 @@ class echo:
 class gen_md:
 
     def GET(self):
+        _query = web.input(src='', title='', encoding='utf-8')
+        if _query.src == '': raise web.seeother('/usage')
+
+        _title = os.path.basename(_query.src).split(
+            '.')[0] if _query.title == '' else _query.title
+        _title = urllib.unquote_plus(_title.encode('utf-8'))
+
+        return self.urlopen_md(_query.src,_title,_query.encoding)
+
+
+    def urlopen_md(self, src, title, encoding):
         try:
-            _query = web.input(src='', title='', encoding='utf-8')
-            if _query.src == '': raise web.seeother('/usage')
-            _md_text = urllib2.urlopen(_query.src, timeout=10).read()
-            _title = os.path.basename(_query.src).split(
-                '.')[0] if _query.title == '' else _query.title
-            _title = urllib.unquote_plus(_title.encode('utf-8'))
-            return self.render_md(_title, unicode(_md_text, _query.encoding), _query.src)
+            _md_text = urllib2.urlopen(src, timeout=10).read()
+            return self.render_md(unicode(_md_text, encoding), title, src)
         except:
             return traceback.format_exc()
 
     def POST(self):
         _query = web.input(note='', title='', based_url='')
         if _query.note == '': raise web.seeother('/usage')
-        return self.render_md(_query.title, _query.note, _query.based_url)
+        return self.render_md(_query.note, _query.title, _query.based_url)
 
-    def render_md(self, title, md_text, based_url):
+    def render_md(self, md_text, title, based_url):
         _md_html = markdown.markdown(md_text)
         return render.gen_md(title, utils.fix_res_link(_md_html, based_url), RES_BASE_URL_PATH)
 
