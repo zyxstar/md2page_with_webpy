@@ -25,9 +25,8 @@ all_handlers = globals()
 
 class index:
     def GET(self):
-        web.input(src=SAMPLE_NOTE_URL, title="Zyxstar's Notes Home", encoding='utf-8')
-        return gen_md().GET()
-
+        _query = urllib.urlencode(dict(src=SAMPLE_NOTE_URL, title="Zyxstar's Notes Home"))
+        web.seeother('/gen_md?' + _query)
 
 class usage:
 
