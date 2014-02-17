@@ -25,7 +25,8 @@ all_handlers = globals()
 
 class index:
     def GET(self):
-        return "index"
+        web.input(src=SAMPLE_NOTE_URL, title="Zyxstar's Notes Home", encoding='utf-8')
+        return gen_md().GET()
 
 
 class usage:
