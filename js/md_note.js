@@ -44,6 +44,26 @@ function change_outlink_style() {
   });
 }
 
+function lazyload_font() {
+
+    var sRule1 =
+        "@font-face {" +
+        "  font-family: 'Hiragino Sans GB';" +
+        "  src: url('../font/Hiragino_Sans_GB_W3.otf') format('opentype');" +
+        "}";
+
+    var style1 = document.styleSheets[0];
+    if ( "function" === typeof(style1.insertRule) ) {
+        // Firefox, Safari, Chrome
+        style1.insertRule(sRule1, 0);
+    }
+    else if ( "string" === typeof(style1.cssText) ) {
+        // IE
+        style1.cssText = sRule1;
+    }
+}
+
+
 (function() {
 
   addEvent(window, "load", function() {
@@ -86,8 +106,11 @@ function change_outlink_style() {
     });
 
     change_outlink_style();
-
+    lazyload_font();
     goto_footer();
+
+
+
 
   }, 500);
 
