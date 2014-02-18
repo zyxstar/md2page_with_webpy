@@ -106,7 +106,7 @@ function lazyload_font() {
     });
 
     change_outlink_style();
-    lazyload_font();
+    // lazyload_font();
     goto_footer();
 
 
