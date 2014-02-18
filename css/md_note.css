@@ -205,7 +205,7 @@ a.toclink {
 }
 
 a.thin{
-    font-family: "STXihei" "微软雅黑";
+    /*font-family: "STXihei" "微软雅黑";*/
     /*font-weight: bold;*/
     width: 71.9px;
 }
