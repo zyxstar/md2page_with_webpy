@@ -7,7 +7,7 @@ html {
 
 body {
     color: #444;
-    font-family: "Hiragino Sans GB", Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "微软雅黑", "STXihei", serif;
+    font-family: "Hiragino Sans GB", "微软雅黑", Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',  "STXihei", serif;
     font-size: 12px;
     line-height: 1.5em;
   /*background:#fefefe;
