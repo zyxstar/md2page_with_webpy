@@ -8,6 +8,10 @@
     src: url('../font/angelina.ttf') format("truetype"),
          url('../font/angelina.eot') format("opentype");
 }
+@font-face {
+    font-family: "Hiragino Sans GB";
+    src: url('../font/Hiragino_Sans_GB_W3.otf') format("opentype");
+}
 body {
     /*width:100%;
     margin:0 auto;*/
