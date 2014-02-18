@@ -49,7 +49,7 @@ function lazyload_font() {
     var sRule1 =
         "@font-face {" +
         "  font-family: 'Hiragino Sans GB';" +
-        "  src: url('../font/Hiragino_Sans_GB_W3.otf') format('opentype');" +
+        "  src: url('/static/font/Hiragino_Sans_GB_W3.otf') format('opentype');" +
         "}";
 
     var style1 = document.styleSheets[0];
