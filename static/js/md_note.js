@@ -76,6 +76,8 @@ function render_author_date(){
     // var html = converter.makeHtml(document.getElementById('txt_mdcontent').value);
     // document.getElementById('md_content').innerHTML = html;
 
+    render_author_date();
+
     var imgs = document.getElementsByTagName('img');
     Array.prototype.slice.call(imgs).map(function(img) {
       addEvent(img, "load", function(){
@@ -86,8 +88,6 @@ function render_author_date(){
 
     addEvent(window, "resize", alter_toc_height);
     alter_toc_height();
-
-    render_author_date();
 
     var pres = document.getElementsByTagName('pre');
     Array.prototype.slice.call(pres).map(function(pre) {
