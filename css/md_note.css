@@ -24,6 +24,7 @@ div {
 
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
+    clear: both;
 }
 h1{
     font-size: 2em;
@@ -232,4 +233,12 @@ div.box {
     box-shadow: 0 2px 10px #ccc;
     _position: absolute;
     _top: expression(eval(document.documentElement.scrollTop));
+}
+
+blockquote.author-date{
+    float: right;
+}
+blockquote.author-date p{
+    margin: 5px auto;
+    line-height: 20px;
 }
