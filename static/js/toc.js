@@ -252,6 +252,7 @@ function expand_toc(el, level) {
             _change_toc(li, "open");
     });
     var cur_link = ul.querySelector("li a.current");
+    if(!cur_link) return;
     if(cur_link.scrollIntoViewIfNeeded)
         cur_link.scrollIntoViewIfNeeded();
     else
