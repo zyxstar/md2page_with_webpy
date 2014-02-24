@@ -95,6 +95,7 @@ function render_author_date(){
     });
 
     make_toc("md_content","md_toc");
+    expand_toc('md_toc',2);
 
   });
 
