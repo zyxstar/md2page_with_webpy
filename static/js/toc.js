@@ -12,7 +12,7 @@ function make_toc(content_el ,container_el) {
                     sects[sects.length-1].has_img = true;
                 continue;
             }
-            if (m.tagName.length == 2 && m.tagName.charAt(0) == "H")
+            if (m.tagName.length == 2 && m.tagName.charAt(0) == "H" && m.tagName.charAt(1) != "R")
                 sects.push({
                     level: get_level(m),
                     node: m,
