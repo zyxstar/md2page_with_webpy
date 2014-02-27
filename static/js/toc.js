@@ -3,12 +3,12 @@ function make_toc(content_el ,container_el) {
         for (var m = el.firstChild; m != null; m = m.nextSibling) {
             if (m.nodeType != 1) continue;
             if (m.tagName == "PRE" || m.tagName == "CODE") continue;
-            if (m.tagName == "IMG"){
+            if (m.tagName == "IMG" && sects.length){
                 sects[sects.length-1].has_img = true;
                 continue;
             }
             if (m.tagName == "P"){
-                if(m.getElementsByTagName("IMG").length != 0)
+                if(m.getElementsByTagName("IMG").length != 0 && sects.length)
                     sects[sects.length-1].has_img = true;
                 continue;
             }
