@@ -125,7 +125,7 @@ function make_toc(content_el ,container_el) {
             // // Now create a link to this section.
             var link = document.createElement("a");
             link.href = "#TOC" + sectionNumber; // Set link destination
-            link.innerHTML = section.innerHTML; // Make link text same as heading
+            link.innerHTML = section.innerText||section.textContent; // Make link text same as heading
             if(n.has_img){
                 link.appendChild(document.createElement("i"));
                 addClass(link,"has-img");
