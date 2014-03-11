@@ -85,9 +85,9 @@ function route_lang_handler(pre_el) {
     pre_el.parentElement.removeChild(pre_el);
   }
 
-  function lang_hand1er(lang, is_run_applet, is_run_online) {
+  function lang_hand1er(lang, brush, is_run_applet, is_run_online) {
     return function() {
-      pre_el.className = "brush: " + lang + ";";
+      pre_el.className = "brush: " + brush + ";";
       pre_el.innerHTML = code;
       if (needrun)
         create_run(pre_el, lang, code, is_run_applet, is_run_online);
@@ -112,19 +112,21 @@ function route_lang_handler(pre_el) {
   var extend_handlers = {
     "web": web_handler,
     "table": table_handler,
-    "c": lang_hand1er("c",false,true),
-    "cpp": lang_hand1er("cpp",false,true),
-    "csharp": lang_hand1er("csharp",true,true),
-    "python": lang_hand1er("python",true,true),
-    "ruby": lang_hand1er("ruby",true,true),
-    "js": lang_hand1er("js",false,false),
-    "java": lang_hand1er("java",true,true),
-    "bash": lang_hand1er("bash",false,true),
+    "c": lang_hand1er("c","c",false,true),
+    "cpp": lang_hand1er("cpp","cpp",false,true),
+    "csharp": lang_hand1er("csharp","csharp",true,true),
+    "python": lang_hand1er("python","python",true,true),
+    "ruby": lang_hand1er("ruby","ruby",true,true),
+    "js": lang_hand1er("js","js",false,false),
+    "java": lang_hand1er("java","java",true,true),
+    "scheme": lang_hand1er("scheme","plain",false,true),
+    "bash": lang_hand1er("bash","bash",false,true),
   }
 
   var default_handlers = function(){
     var langs = ["as3","css","delphi","erlang","groovy","html","pascal","perl","php","powershell","scala","shell","sql","xml"];
-    return lang_hand1er(langs.filter(function(_lang){return _lang===language})[0] || 'plain', false, false);
+    var cur_lang = langs.filter(function(_lang){return _lang===language})[0] || 'plain';
+    return lang_hand1er(cur_lang, cur_lang, false, false);
   };
   return extend_handlers[language] || default_handlers();
 }

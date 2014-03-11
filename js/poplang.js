@@ -51,6 +51,7 @@ function get_lang_cfgs(){
         {lang:'cpp', lang_alias:'cpp', modename:'text/x-c++src', exec_type:'compile'},
         {lang:'csharp', lang_alias:'csharp', modename:'text/x-csharp', exec_type:'compile'},
         {lang:'java', lang_alias:'java', modename:'text/x-java', exec_type:'compile'},
+        {lang:'scheme', lang_alias:'scheme', modename:'text/x-scheme', exec_type:'execute'},
         {lang:'bash', lang_alias:'bash', modename:'text/x-sh', exec_type:'execute'},
         // {lang:'objective-c', lang_alias:'objc', modename:'text/x-csrc', exec_type:'compile'},
         // {lang:'golang', lang_alias:'golang', modename:'text/x-go', exec_type:'execute'},
