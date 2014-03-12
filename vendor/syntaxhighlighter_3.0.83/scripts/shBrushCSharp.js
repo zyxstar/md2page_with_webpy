@@ -45,6 +45,7 @@
 			{ regex: /@"(?:[^"]|"")*"/g,								css: 'string' },			// @-quoted strings
 			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// strings
 			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// strings
+			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,				css: 'value' },			// numbers
 			{ regex: /^\s*#.*/gm,										css: 'preprocessor' },		// preprocessor tags like #region and #endregion
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' },			// c# keyword
 			{ regex: /\bpartial(?=\s+(?:class|interface|struct)\b)/g,	css: 'keyword' },			// contextual keyword: 'partial'
