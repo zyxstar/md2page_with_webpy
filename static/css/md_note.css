@@ -176,11 +176,15 @@ div#title {
 }
 
 .syntaxhighlighter .line.alt2 {
-    background-color: rgba(240, 240, 240, 0.4) !important;
+    background-color: rgba(248, 245, 245, 1) !important;
 }
 
-.syntaxhighlighter .line.highlighted.number {
-    color: #000!important
+.syntaxhighlighter .number {
+    color: #6F008A !important;
+}
+
+.syntaxhighlighter .value {
+    color: #6F008A !important;
 }
 
 .syntaxhighlighter .string, .syntaxhighlighter .string a {
