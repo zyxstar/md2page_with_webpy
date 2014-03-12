@@ -119,7 +119,7 @@ function route_lang_handler(pre_el) {
     "ruby": lang_hand1er("ruby","ruby",true,true),
     "js": lang_hand1er("js","js",false,false),
     "java": lang_hand1er("java","java",true,true),
-    "scheme": lang_hand1er("scheme","plain",false,true),
+    "scheme": lang_hand1er("scheme","scheme",false,true),
     "bash": lang_hand1er("bash","bash",false,true),
   }
 
