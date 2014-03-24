@@ -144,10 +144,10 @@ function create_run(pre, lang, code, is_run_applet, is_run_online)  {
   var height=screen.availHeight*0.8;
 
   if (lang === "js") {
-    create_run_button(pre,"►js",'web',width,height,{html:"",js:code,css:""});
+    create_run_button(pre,"►run",'web',width,height,{html:"",js:code,css:""});
   }
   else if(lang==='web'){
-    create_run_button(pre,"►web",'web',width,height,code);
+    create_run_button(pre,"►run",'web',width,height,code);
   }
   else{
     width = screen.availWidth*0.4;
