@@ -152,6 +152,14 @@ strong em{
 #md_content li{
     margin-top: 8px;
 }
+
+#md_content a.external{
+    padding-right: 13px;
+    margin-right: 3px;
+    display: inline-block;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
+}
+
 div#title {
     /*margin: 8px 0 -8px 8px; can affect overlay_div top*/
     padding: 18px 0 0 28px;
@@ -160,6 +168,7 @@ div#title {
     color: #af670a;
     text-shadow: 3px 3px 4px #DDD;
 }
+
 
 .syntaxhighlighter {
     margin: 0 !important;
