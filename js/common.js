@@ -69,6 +69,7 @@ function removeEvent(oTarget, eventType, listener) {
 }
 
 
+
 function offsetTopInBody(el){
     var parent=el.offsetParent,
         sumOfTop=0;
@@ -146,6 +147,20 @@ function draggable(axis, el, startfn, dragfn, stopfn) {
 
 function updateDic(oldDic,newDic){
     for(var pro in newDic)
-        if (newDic.hasOwnProperty(pro))
-            oldDic[pro]=newDic[pro]
+        if (Object.prototype.hasOwnProperty.call(newDic,pro)
+            oldDic[pro] = newDic[pro];
+}
+
+
+function retry_run(fn_condition, fn_run_body, times, interval){
+    var _times = times || 5;
+    var _interval = interval || 500;
+    (function (){
+        if(fn_condition() && _times > 0){
+            fn_run_body();
+        } else {
+            _times--;
+            setTimeout(arguments.callee, _interval);
+        }
+    })();
 }
