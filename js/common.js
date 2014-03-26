@@ -147,7 +147,7 @@ function draggable(axis, el, startfn, dragfn, stopfn) {
 
 function updateDic(oldDic,newDic){
     for(var pro in newDic)
-        if (Object.prototype.hasOwnProperty.call(newDic,pro)
+        if (Object.prototype.hasOwnProperty.call(newDic,pro))
             oldDic[pro] = newDic[pro];
 }
 
