@@ -87,7 +87,7 @@ class gen_md:
             _md_text = urlopen(src, timeout=10).read()
             return self.render_md(unicode(_md_text, encoding), title, src)
         except:
-            return traceback.format_exc()
+            return format_exc()
 
     def POST(self):
         _query = web.input(note='', title='', based_url='')
@@ -128,5 +128,5 @@ class exec_lang:
                 "http://www.compileonline.com/%s_new.php" % _query.exec_type, _data, _headers)
             return _res.read()
         except:
-            return traceback.format_exc()
+            return format_exc()
 
