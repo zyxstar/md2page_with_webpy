@@ -157,8 +157,13 @@ function Native_code_parser(applet_runner, lang) {
   if (cfg === null)
     alert("This language is not yet supported on the applet running");
 
+  this.is_ready = function(){
+    if (typeof applet_runner === "undefined" ) return false;
+    return typeof applet_runner.runCmd === "function";
+  }
 
   this.get_version = function() {
+    if(!this.is_ready()) return "";
     var versioninfo = applet_runner.runCmd("cmd /c " + cfg.versioncmd,cfg.sys_encoding,"UTF-8");
     return versioninfo.split('\n').slice(0, cfg.versionline).filter(function(line){return line.trim().length>0}).join('\n')+"\n";
   };
@@ -168,6 +173,7 @@ function Native_code_parser(applet_runner, lang) {
   };
 
   this.exec_code = function(codelines) {
+    if(!this.is_ready()) return "";
     var path = applet_runner.writeFile(cfg.filename(codelines),cfg.firstline + codelines, "UTF-8",cfg.file_encoding);
     return applet_runner.runCmd("cmd /c " + cfg.parser(path),cfg.sys_encoding,"UTF-8");
   };
