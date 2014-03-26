@@ -105,7 +105,11 @@ function change_lang(lang){
     if(!is_online && (!code_parser || code_parser.lang!==lang)){
         var runner = document.getElementById('cmdRunner');
         code_parser = new Native_code_parser(runner,lang);
-        document.getElementById('txt_result').value = code_parser.get_version();
+
+        retry_run(code_parser.is_ready, function(){
+            document.getElementById('txt_result').value = code_parser.get_version();
+        }, 5, 500);
+
     }
 
     var langmode = get_lang_cfgs().filter(function(cfg){return cfg.lang===lang;})[0].modename;
@@ -141,15 +145,31 @@ function run_lang(){
         frm_online.submit();
     } else{
         var txt_result = document.getElementById('txt_result');
-        var result=code_parser.exec_code(code);
-        txt_result.value += code_parser.get_prompt()+' '+result;
-        txt_result.scrollTop = txt_result.scrollHeight;
+        retry_run(code_parser.is_ready, function(){
+            var result = code_parser.exec_code(code);
+            txt_result.value += code_parser.get_prompt()+' '+result;
+            txt_result.scrollTop = txt_result.scrollHeight;
+        }, 5, 500);
     }
 }
 
 
 addEvent(window,'load',function(){
     init_page();
+
+    if(window.opener){
+        var storage=window.localStorage||window.opener.md_codeStorage;
+        var lang=storage.lang;
+        var code=storage.code;
+
+        document.getElementById('sel_lang').value=lang;
+        change_lang(lang);
+        code_editor.setValue(HTMLDecode(code));
+
+        run_lang();
+    }
+    else
+        change_lang(get_lang_cfgs()[0].lang);
 
     addEvent(document.getElementById('run'),'click',run_lang);
     addEvent(document.getElementById("chk_online"),'click',function(){
@@ -160,20 +180,5 @@ addEvent(window,'load',function(){
         change_lang(document.getElementById("sel_lang").value);
     });
 
-    setTimeout(function(){
-        if(window.opener){
-            var storage=window.localStorage||window.opener.md_codeStorage;
-            var lang=storage.lang;
-            var code=storage.code;
-
-            document.getElementById('sel_lang').value=lang;
-            change_lang(lang);
-            code_editor.setValue(HTMLDecode(code));
-
-            run_lang();
-        }
-        else
-            change_lang(get_lang_cfgs()[0].lang);
-    },200);
 });
 
