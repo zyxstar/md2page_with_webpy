@@ -84,7 +84,7 @@ $(document).ready(function(){
     $("#md_content pre").each(function(){route_lang_handler(this)();});
 
     // SyntaxHighlighter.defaults['html-script'] = true;
-    SyntaxHighlighter.all
+    SyntaxHighlighter.all();
 
     make_toc("md_content","md_toc");
     expand_toc('md_toc',2);
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 });
 
-();
+
 
 
 
