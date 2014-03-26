@@ -77,7 +77,7 @@ class gen_md:
 
         _title = os.path.basename(_query.src).rsplit(
             '.',1)[0] if _query.title == '' else _query.title
-        _title = urllib.unquote_plus(_title.encode('utf-8'))
+        _title = unquote_plus(_title.encode('utf-8'))
 
         return self.urlopen_md(_query.src,_title,_query.encoding)
 
