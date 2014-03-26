@@ -1,12 +1,13 @@
 # -*- coding: UTF-8 -*-
-import os
+import os.path
 import web
-import urllib
-import urllib2
-import markdown
-import re
-import traceback
 import utils
+
+from markdown import markdown
+from random import randrange
+from traceback import format_exc
+from urllib import unquote_plus
+from urllib2 import urlopen
 
 SAMPLE_NOTE_URL = None
 RES_BASE_URL_PATH = None
@@ -31,7 +32,7 @@ class usage:
 
     def GET(self):
         try:
-            _sample_note = urllib2.urlopen(SAMPLE_NOTE_URL, timeout=10).read()
+            _sample_note = urlopen(SAMPLE_NOTE_URL, timeout=10).read()
         except:
             _sample_note = ""
         return render.usage(_sample_note, RES_BASE_URL_PATH)
@@ -83,7 +84,7 @@ class gen_md:
 
     def urlopen_md(self, src, title, encoding):
         try:
-            _md_text = urllib2.urlopen(src, timeout=10).read()
+            _md_text = urlopen(src, timeout=10).read()
             return self.render_md(unicode(_md_text, encoding), title, src)
         except:
             return traceback.format_exc()
@@ -94,7 +95,7 @@ class gen_md:
         return self.render_md(_query.note, _query.title, _query.based_url)
 
     def render_md(self, md_text, title, based_url):
-        _md_html = markdown.markdown(md_text)
+        _md_html = markdown(md_text)
         return render.gen_md(title, utils.fix_res_link(_md_html, based_url), RES_BASE_URL_PATH)
 
 
@@ -104,9 +105,10 @@ class exec_lang:
         _query = web.input(
             lang='', lang_alias='', exec_type='', code='', inputs='', args='')
         _headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36",
             "Accept": "*/*",
             "Accept-Language": "en-US,en;q=0.8",
+            "X-Forwarded-For": "61.51.%d.%d" % (randrange(10,245),randrange(10,245)),
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "Origin": "http://www.compileonline.com",
             "Referer": "http://www.compileonline.com/execute_%s_online.php" % _query.lang,
