@@ -108,7 +108,7 @@ function change_lang(lang){
 
         retry_run(code_parser.is_ready, function(){
             document.getElementById('txt_result').value = code_parser.get_version();
-        }, 5, 500);
+        }, 60, 1000);
 
     }
 
@@ -149,7 +149,7 @@ function run_lang(){
             var result = code_parser.exec_code(code);
             txt_result.value += code_parser.get_prompt()+' '+result;
             txt_result.scrollTop = txt_result.scrollHeight;
-        }, 5, 500);
+        }, 60, 1000);
     }
 }
 
