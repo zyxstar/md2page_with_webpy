@@ -191,7 +191,7 @@ function make_toc(content_el ,container_el) {
             var mark_sect=sects[i].node;
             var mark_sect_offsetTopInBody=offsetTopInBody(mark_sect);
 
-            var top_distance=(document.body.scrollTop||document.documentElement.scrollTop);
+            var top_distance=(document.documentElement.scrollTop||document.body.scrollTop);
 
             if(mark_sect_offsetTopInBody > top_distance + 50){
                 index = (i==0 ? 0 : i-1);
