@@ -33,7 +33,7 @@ function HTMLDecode(text) {
     temp.innerHTML = text;
     return temp.value;
 }
-function HTMLEncode(text){
+function HTMLEncode(text) {
     var div = document.createElement("div");
     div.appendChild(document.createTextNode(text));
     return div.innerHTML;
@@ -70,10 +70,10 @@ function removeEvent(oTarget, eventType, listener) {
 
 
 
-function offsetTopInBody(el){
+function offsetTopInBody(el) {
     var parent=el.offsetParent,
         sumOfTop=0;
-    while(parent){
+    while(parent) {
         sumOfTop+=parent.offsetTop;
         parent=parent.offsetParent;
     }
@@ -121,7 +121,7 @@ function draggable(axis, el, startfn, dragfn, stopfn) {
             y: evt.clientY-startMPos.y
         };
 
-        if(dragfn && dragfn(el,diff,evt) || !dragfn){
+        if(dragfn && dragfn(el,diff,evt) || !dragfn) {
             if (axis && axis.toLowerCase() === 'x')
                 el.style.left =(startElPos.left + diff.x) + 'px';
             else if (axis && axis.toLowerCase() === 'y')
@@ -145,20 +145,20 @@ function draggable(axis, el, startfn, dragfn, stopfn) {
 
 
 
-function updateDic(oldDic,newDic){
+function updateDic(oldDic,newDic) {
     for(var pro in newDic)
         if (Object.prototype.hasOwnProperty.call(newDic,pro))
             oldDic[pro] = newDic[pro];
 }
 
 
-function retry_run(fn_condition, fn_run_body, times, interval){
+function retry_run(fn_util_cond, fn_run_body, times, interval) {
     var _times = times || 5;
     var _interval = interval || 500;
-    (function (){
-        if(fn_condition() && _times > 0){
+    (function () {
+        if (fn_util_cond()) {
             fn_run_body();
-        } else {
+        } else if (_times > 0) {
             _times--;
             setTimeout(arguments.callee, _interval);
         }
