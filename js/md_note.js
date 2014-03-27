@@ -1,5 +1,4 @@
 function alter_toc_height() {
-  console.log("toc_height")
   document.getElementById('md_toc').style.maxHeight = (document.documentElement.clientHeight - 105) + 'px';
 }
 
@@ -79,17 +78,12 @@ $(document).ready(function(){
     // });
 
     $('#md_content img').each(function(){
-       $(this).attr({'data-original':$(this).attr('src'),
-                     'height':'300px',
-                     'width':'400px'})
-              .removeAttr('src')
-              .addClass('lazy')
-              .on('load', function(){
-                  $(this).removeAttr('height').removeAttr('width');
-              });
+       $(this).attr({'data-original':$(this).attr('src')})
+              .attr('src', '/static/css/imgs/lazy.png')
+              .addClass('lazy');
     });
 
-    $('#md_content img.lazy').lazyload();
+    $('#md_content img.lazy').lazyload({threshold : 200, effect : 'fadeIn'});
     $('#md_content pre').each(function(){route_lang_handler(this)();});
 
     SyntaxHighlighter.highlight();
