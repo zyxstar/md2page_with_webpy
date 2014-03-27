@@ -171,7 +171,8 @@ function make_toc(content_el ,container_el) {
     container.appendChild(create_toc(level_1_nodes));
 
     var cur_sect=null;
-    addEvent(window, "scroll", function() {
+
+    addEvent(window, "scroll", _.throttle(function() {
 
         function add_cur_style(sect){
             addClass(sect.ref_toc_link,"current");
@@ -218,7 +219,7 @@ function make_toc(content_el ,container_el) {
             }
         }
 
-    });
+    }, 10));
 
 
 }
