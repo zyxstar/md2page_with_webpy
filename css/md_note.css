@@ -175,17 +175,19 @@ div#title {
 }
 
 .syntaxhighlighter .toolbar {
-    /*display: none;*/
+    display: none;
 }
 .syntaxhighlighter .line{
     line-height: 1.2em !important;
 }
 .syntaxhighlighter .line.alt1 {
-    background-color: #FFF !important;
+    background-color: #f5f7f8 !important;
+    font-size: 0.96em!important;
 }
 
 .syntaxhighlighter .line.alt2 {
-    background-color: rgba(248, 245, 245, 1) !important;
+    background-color: #f5f7f8 !important;
+    font-size: 0.96em!important;
 }
 
 .syntaxhighlighter .number {
