@@ -48,6 +48,8 @@ body {
     display: block;
     position: relative;
     background-color: #FFF;
+
+    -webkit-font-smoothing: antialiased;
 /*    font-family: 'Source Sans Pro'!important;*/
 }
 
@@ -58,8 +60,10 @@ div {
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
     clear: both;
-    background-color: #F8F8EE;/*#F0F5FD;*/
+    background: #eaeaea url('../css/imgs/bg.png');
+    /*background-color: #F8F8EE;/*#6c615c;#F0F5FD;*/
     color: #af670a;
+
     padding-left: 15px;
     line-height: 1.5em;
     border-bottom: 1px solid silver;
@@ -180,7 +184,8 @@ strong em{
     z-index: 99;
 }
 
-#md_toc {height: 80%;
+#md_toc {
+    height: 80%;
     border-top: 1px dotted #af670a;
     border-bottom: 1px dotted #af670a;
     overflow-y: auto;
@@ -206,9 +211,12 @@ div#title {
     /*margin: 8px 0 -8px 8px; can affect overlay_div top*/
     padding: 18px 0 0 28px;
     font-size: 2.5em;
+    font-weight: bold;
     line-height: 1.5em;
-    color: #af670a;
-    text-shadow: 3px 3px 4px #DDD;
+    /*color: #af670a;*/
+    /*text-shadow: 3px 3px 4px #DDD;*/
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
 }
 
 
