@@ -8,6 +8,38 @@
     src: url('../font/angelina.ttf') format("truetype"),
          url('../font/angelina.eot') format("opentype");
 }
+/*
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxBHWFfxJXS04xYOz0jw624.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/ODelI1aHBYDBqgeIAH2zlBBHWFfxJXS04xYOz0jw624.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGAAD_zxmsR6vL1X3tnvCZYo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/M2Jd71oPJhLKp0zdtTvoM1xDqsnd7zNt-b9r25av6rY.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold Italic'), local('SourceSansPro-SemiboldIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6DugCgqSmF8aQZaqvLxtKh4.woff) format('woff');
+}*/
+
 
 body {
     /*width:100%;
@@ -16,6 +48,7 @@ body {
     display: block;
     position: relative;
     background-color: #FFF;
+/*    font-family: 'Source Sans Pro'!important;*/
 }
 
 div {
@@ -25,7 +58,16 @@ div {
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
     clear: both;
+    background-color: #F8F8EE;/*#F0F5FD;*/
+    color: #af670a;
+    padding-left: 15px;
+    line-height: 1.5em;
+    border-bottom: 1px solid silver;
+    -moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
 }
+
 h1{
     font-size: 2em;
 }
@@ -180,6 +222,9 @@ div#title {
 .syntaxhighlighter .line{
     line-height: 1.2em !important;
 }
+/*.syntaxhighlighter .line code{
+    font-family: 'Source Sans Pro'!important;
+}*/
 .syntaxhighlighter .line.alt1 {
     background-color: #f5f7f8 !important;
     font-size: 0.96em!important;
