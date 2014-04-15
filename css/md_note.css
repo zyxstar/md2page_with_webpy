@@ -48,7 +48,6 @@ body {
     display: block;
     position: relative;
     background-color: #FFF;
-
     -webkit-font-smoothing: antialiased;
 /*    font-family: 'Source Sans Pro'!important;*/
 }
@@ -60,8 +59,9 @@ div {
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
     clear: both;
-    background: #eaeaea url('../css/imgs/bg.png');
+    /*background: #eaeaea url('../css/imgs/bg.png');*/
     /*background-color: #F8F8EE;/*#6c615c;#F0F5FD;*/
+    background: #f4f4f4;
     color: #af670a;
 
     padding-left: 15px;
