@@ -311,7 +311,7 @@ blockquote.author-date p{
     background: url(../css/imgs/icons.gif) no-repeat;
     background-position: 0 -48px;
     margin: 0;
-    padding-left: 20px;
+    padding: 0 5px 0 20px;
     height: 16px;
     line-height: 16px;
 }
