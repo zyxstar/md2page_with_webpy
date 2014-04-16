@@ -56,32 +56,32 @@ ul.TOCEntry a:hover, a:focus {
 
 ul.TOCEntry i.expand {
     display: inline-block;
-/*    width: 16px;
+    width: 16px;
     margin-left: -16px;
     height: 16px;
-    line-height: 16px;*/
-    width: 14px;
+    line-height: 16px;
+ /*   width: 14px;
     margin-left: -14px;
     height: 14px;
     line-height: 14px;
-    margin-top: 0;
+    margin-top: 0;*/
     /*font-weight: bold;*/
-    background-image: url("../css/imgs/glyphicons-halflings.png");
-    /*background-image: url(sprite.png);*/
+    /*background-image: url("../css/imgs/glyphicons-halflings.png");*/
+    background-image: url(../css/imgs/sprite.png);
 }
 
 ul.TOCEntry i.expand:hover {
-    background-color: rgba(255,0,0,.20);
+    background-color: rgba(0,0,0,.20);
 }
 
 ul.TOCEntry i.open {
-    background-position: -433px -96px;
-    /*background-position:2px -638px;*/
+    /*background-position: -433px -96px;*/
+    background-position:2px -638px;
 }
 
 ul.TOCEntry i.close {
-    background-position: -408px -96px;
-    /*background-position:2px -688px;*/
+    /*background-position: -408px -96px;*/
+    background-position:2px -688px;
 }
 
 li.TOCSectNum:after {
