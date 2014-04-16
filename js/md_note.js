@@ -4,8 +4,8 @@ function alter_toc_height() {
 
 function goto_top() {
   document.documentElement.scrollTop = 0;
-  if(document.documentElement.scrollTop !== +document.documentElement.scrollTop)
-      document.body.scrollTop = 0;
+  // if(document.documentElement.scrollTop !== +document.documentElement.scrollTop)
+  document.body.scrollTop = 0;
 
   var toc = document.getElementById('md_toc');
   toc.scrollTop = 0;
@@ -14,8 +14,8 @@ function goto_top() {
 function check_goto_footer(){
   if (location.hash === '#footer') {
     document.documentElement.scrollTop = document.body.scrollHeight;
-    if(document.documentElement.scrollTop !== +document.documentElement.scrollTop)
-        document.body.scrollTop = document.body.scrollHeight;
+    // if(document.documentElement.scrollTop !== +document.documentElement.scrollTop)
+    document.body.scrollTop = document.body.scrollHeight;
     var toc = document.getElementById('md_toc');
     toc.scrollTop = toc.scrollHeight;
   }
