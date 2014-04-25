@@ -68,7 +68,7 @@ ul.TOCEntry i.expand {
     /*font-weight: bold;*/
     /*background-image: url("../css/imgs/glyphicons-halflings.png");*/
     background-image: url(../css/imgs/sprite.png);
-    opacity: 0.75;
+    opacity: 0.6;
 }
 
 ul.TOCEntry i.expand:hover {
