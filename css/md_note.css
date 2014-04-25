@@ -315,3 +315,12 @@ blockquote.author-date p{
     height: 16px;
     line-height: 16px;
 }
+/*code{
+    border: 0;
+    background-color: #D6DBDF;
+    border-radius: 4px;
+    color: #2C3E50;
+    font-size: 14px;
+    padding: 2px 4px;
+    white-space: nowrap;
+}*/

@@ -131,6 +131,7 @@ function make_toc(content_el ,container_el) {
                 addClass(link,"has-img");
             }
             link.title=section.innerText||section.textContent;
+            link.ondblclick = toggle_toc;
             n.ref_toc_link=link;
 
             var li = document.createElement("li");
@@ -220,16 +221,16 @@ function make_toc(content_el ,container_el) {
         }
 
     }, 10));
-
-
 }
 
 function toggle_toc(event) {
     if (!event) event = window.event;
-    var el = event.target || event.srcElement;
-    var li = el.parentNode;
-    if (hasClass(el, 'open')) _change_toc(li, 'close')
-    else if (hasClass(el, 'close')) _change_toc(li, 'open')
+    var li = (event.target || event.srcElement).parentNode;
+    var i = li.getElementsByTagName('I')[0];
+    if(i){
+        if (hasClass(i, 'open')) _change_toc(li, 'close');
+        else if (hasClass(i, 'close')) _change_toc(li, 'open');
+    }
 }
 
 function _change_toc(li, typ) {
