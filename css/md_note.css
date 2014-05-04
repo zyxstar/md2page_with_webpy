@@ -293,7 +293,7 @@ a.toclink:active {
     background-color: #E85205;
 }
 div.box {
-    background-color: #FFF;
+    background-color: #FEFEF5;
     position: fixed;
     z-index: 1;
     -webkit-box-shadow: 0 2px 10px #ccc;

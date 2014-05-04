@@ -42,7 +42,7 @@ function parse_web_code(ifrm_container,html_code,js_code,css_code){
     ifrm.document.write(css_code);
     ifrm.document.write('<\/style>');
 
-    var re=/\/\/\s*?import\s+?(\S+)/gi;
+    var re=/\/\/\=\s*?require\s+?(\S+)/gi;
 
     var matchs=[];
     js_code.replace(re,function(){
