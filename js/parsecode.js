@@ -160,12 +160,12 @@ function Native_code_parser(applet_runner, lang) {
   this.is_ready = function(){
     if (typeof applet_runner === "undefined" ) return false;
     return typeof applet_runner.runCmd === "function";
-  }
+  };
 
   this.get_version = function() {
     if(!this.is_ready()) return "";
     var versioninfo = applet_runner.runCmd("cmd /c " + cfg.versioncmd,cfg.sys_encoding,"UTF-8");
-    return versioninfo.split('\n').slice(0, cfg.versionline).filter(function(line){return line.trim().length>0}).join('\n')+"\n";
+    return versioninfo.split('\n').slice(0, cfg.versionline).filter(function(line){return line.trim().length>0;}).join('\n')+"\n";
   };
 
   this.get_prompt = function() {

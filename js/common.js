@@ -53,7 +53,7 @@ function addEvent(oTarget, eventType, listener) {
         oTarget['e' + eventType + listener] = listener;
         oTarget[eventType + listener] = function() {
             oTarget['e' + eventType + listener](window.event);
-        }
+        };
         oTarget.attachEvent('on' + eventType, oTarget[eventType + listener]);
     }
 }

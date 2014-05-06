@@ -7,7 +7,7 @@ function route_lang_handler(pre_el) {
 
   //<!-- language: !js -->
   //`!` mark if need be run
-  for (var prev = pre_el.previousSibling; prev != null; prev = prev.previousSibling) {
+  for (var prev = pre_el.previousSibling; prev !== null; prev = prev.previousSibling) {
     if (prev.nodeType === 3) continue; //text
     if (prev.nodeType === 8) { //comment
       var re = /language\s*?:\s*?(\S*?)\s*?$/gi;
@@ -25,7 +25,7 @@ function route_lang_handler(pre_el) {
   function web_handler(){
 
     var num=1;
-    for (var prev = pre_el.previousSibling; prev != null; prev = prev.previousSibling) {
+    for (var prev = pre_el.previousSibling; prev !== null; prev = prev.previousSibling) {
       if (prev.nodeName.toUpperCase()[0] === 'H'){
         num=prev.nodeName[1]-(-1);
         break;
@@ -34,7 +34,7 @@ function route_lang_handler(pre_el) {
 
     function add_pre(lang,code){
       var head=document.createElement('H'+num);
-      head.appendChild(document.createTextNode(lang+" Code"))
+      head.appendChild(document.createTextNode(lang+" Code"));
 
       var pre=document.createElement('PRE');
       pre.className = "brush: " + lang.toLowerCase() + ";";
@@ -49,29 +49,26 @@ function route_lang_handler(pre_el) {
     var descs=[];
     code.replace(re,function(){
         descs.push({lang:arguments[1].toLowerCase(),idx:arguments[2],len:arguments[0].length});
-    })
+    });
 
     for(var i=0;i<descs.length;i++){
       var _cd=code.slice(descs[i].idx+descs[i].len, i<descs.length-1 ? descs[i+1].idx : code.length).trim();
 
       switch(descs[i].lang){
         case 'html':
-        case 'htm':{
+        case 'htm':
           webCodes.html=_cd;
           add_pre("Html",HTMLEncode(_cd));
           break;
-        }
-        case 'css':{
+        case 'css':
           webCodes.css=_cd;
           add_pre("Css",_cd);
           break;
-        }
         case 'javascript':
-        case 'js':{
+        case 'js':
           webCodes.js=_cd;
           add_pre("JavaScript",_cd);
           break;
-        }
         default:break;
       }
     }
@@ -105,7 +102,7 @@ function route_lang_handler(pre_el) {
     "htm":"html",
     "pl":"perl",
     "ps":"powershell"
-  }
+  };
 
   language = trans_lang[language] || language;
 
@@ -121,11 +118,11 @@ function route_lang_handler(pre_el) {
     "java": lang_hand1er("java","java",true,true),
     "scheme": lang_hand1er("scheme","scheme",false,true),
     "bash": lang_hand1er("bash","bash",false,true),
-  }
+  };
 
   var default_handlers = function(){
     var langs = ["as3","css","delphi","erlang","groovy","html","pascal","perl","php","powershell","scala","shell","sql","xml"];
-    var cur_lang = langs.filter(function(_lang){return _lang===language})[0] || 'plain';
+    var cur_lang = langs.filter(function(_lang){return _lang===language;})[0] || 'plain';
     return lang_hand1er(cur_lang, cur_lang, false, false);
   };
   return extend_handlers[language] || default_handlers();
@@ -166,7 +163,7 @@ function create_run_button(pre, btn_name, page, width, height, storage_values){
   function setStorage(values){
     window.md_codeStorage=values;
     if(window.localStorage)
-      updateDic(window.localStorage,window.md_codeStorage)
+      updateDic(window.localStorage,window.md_codeStorage);
   }
 
   var btn = document.createElement('input');

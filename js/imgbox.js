@@ -43,8 +43,8 @@ function show_img(src, width, height){
 
     div.style.width = width+"px";
     div.style.height = height+"px";
-    div.style.marginTop = (-(height/2)) + "px"
-    div.style.marginLeft = (-(width/2)) + "px"
+    div.style.marginTop = (-(height/2)) + "px";
+    div.style.marginLeft = (-(width/2)) + "px";
     div.style.display = "block";
 
 }

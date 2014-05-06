@@ -85,35 +85,27 @@ h4{
     font-size: 1.3em;
 }
 
-p {
-    /*margin-bottom: 0.3em;*/
-}
-
 a:hover, a:active {
     outline: 0;
 }
 a{
-    color:#08c;
-/*    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
-    padding-right: 13px;*/
-
+    color:#4183c4;
 }
 a:hover, a:focus {
-    color: #005580;
+    color:#4183c4;
     text-decoration:underline;
-
 }
 a:visited {
-    color:#08c;
+    color:#4183c4;
 }
-
+/*
 table {
     border-collapse: collapse;
     border-spacing: 2px;
     width: 95%;
     overflow: auto;
     border-color: gray;
-    /*display: block;*/
+
 }
 
 tbody {
@@ -147,13 +139,48 @@ table td, table th {
 
 table th {
     font-weight: bold;
+}*/
+
+
+body table
+{
+  display:block;
+  overflow:auto;
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
 }
-strong {
-    /*color: black;*/
+
+body table th
+{
+  font-weight:700;
 }
+
+body table th,body table td
+{
+  border:1px solid #ddd;
+  padding:6px 13px;
+}
+
+body table tr
+{
+  background-color:#fff;
+  border-top:1px solid #ccc;
+}
+
+body table tr:nth-child(2n)
+{
+  background-color:#f8f8f8;
+}
+
+body table tr:hover td{
+   background-color:#eee;
+}
+
 strong em{
     font-style: normal;
-    color: red;/*#D0434D;*/
+    color: #ED6C70;/*red;#D0434D;*/
     font-weight: bold;
 }
 
