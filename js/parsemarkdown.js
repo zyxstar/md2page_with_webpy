@@ -126,12 +126,12 @@ function MarkdownParser(text) {
                             for (var j = i; j < text_mark.length && text_mark[j]; j++); //no loop
                             return j - i;
                         }();
-                        dom_arr[i] = document.createTextNode(text_mark.slice(i, i + len).join(''))
+                        dom_arr[i] = document.createTextNode(text_mark.slice(i, i + len).join(''));
                         i += len;
                     }
                 }
 
-                for (var i = 0; i < dom_arr.length; i++) {
+                for (i = 0; i < dom_arr.length; i++) {
                     if (dom_arr[i]) {
                         frag.appendChild(dom_arr[i]);
                         delete dom_arr[i];

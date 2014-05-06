@@ -14,10 +14,20 @@ function parse_table(text) {
     var lines = text.split('\n').slice(0, -1).map(function(line) {
         return line
             .split('|')
-            .slice(1, -1)
+            //.slice(1, -1)
             .map(Function.prototype.call, String.prototype.trim);
             //.map(Function.prototype.call.bind(String.prototype.trim));
     });
+
+    var cols = lines[1];
+    if(cols[0] === '')
+        lines = lines.map(function (line) {
+            return line.slice(1);
+        });
+    if(cols[cols.length-1] === '')
+        lines = lines.map(function (line) {
+            return line.slice(0,-1);
+        });
 
     var heads = lines[0];
     var aligns = lines[1].map(function(item) {
@@ -51,7 +61,7 @@ function parse_table(text) {
     table.appendChild(tbody);
 
     for (var row = 2; row < lines.length; row++) {
-        var tr = document.createElement("TR");
+        tr = document.createElement("TR");
         tbody.appendChild(tr);
         for (var col = 0; col < heads.length; col++) {
             var td = document.createElement("TD");
