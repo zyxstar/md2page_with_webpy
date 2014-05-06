@@ -89,7 +89,7 @@ $(document).ready(function(){
     SyntaxHighlighter.highlight();
     render_author_date();
     make_toc('md_content','md_toc');
-    expand_toc('md_toc',2);
+    expand_toc('md_toc',3);
     alter_toc_height();
 
     $('#md_content div.syntaxhighlighter').each(function(){
@@ -98,7 +98,7 @@ $(document).ready(function(){
     });
 
     change_external_link_style();
-    // lazyload_font();
+    //lazyload_font();
     check_goto_footer();
 });
 

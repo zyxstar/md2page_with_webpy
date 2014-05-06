@@ -12,7 +12,7 @@ function make_toc(content_el ,container_el) {
                     sects[sects.length-1].has_img = true;
                 continue;
             }
-            if (m.tagName.length == 2 && m.tagName.charAt(0) == "H" && m.tagName.charAt(1) != "R")
+            if (m.tagName.length == 2 && m.tagName.charAt(0) == "H" && m.tagName.charAt(1) !== "R")
                 sects.push({
                     level: get_level(m),
                     node: m,
@@ -234,7 +234,7 @@ function toggle_toc(event) {
 }
 
 function _change_toc(li, typ) {
-    var ul = li.getElementsByTagName('UL')[0]
+    var ul = li.getElementsByTagName('UL')[0];
     if (ul) {
         ul.style.display = (typ === 'close' ? 'none' : 'block');
         var i = li.getElementsByTagName('I')[0];

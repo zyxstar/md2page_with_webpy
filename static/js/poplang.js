@@ -60,7 +60,7 @@ function get_lang_cfgs(){
 
 
 function init_page(){
-    var is_online=location.search.match(/online/i)
+    var is_online=location.search.match(/online/i);
 
     //init select
     var sel_lang=document.getElementById("sel_lang");
@@ -137,7 +137,7 @@ function run_lang(){
 
     if(is_online){
         var frm_online=document.forms['frm_online'];
-        lang_cfg = get_lang_cfgs().filter(function(cfg){return cfg.lang===lang;})[0]
+        lang_cfg = get_lang_cfgs().filter(function(cfg){return cfg.lang===lang;})[0];
         frm_online.lang.value=lang;
         frm_online.lang_alias.value=lang_cfg.lang_alias;
         frm_online.code.value=code;
