@@ -1,11 +1,8 @@
 # -*- coding: UTF-8 -*-
 
 import re
-import httplib
 import urllib
 import urllib2
-import cookielib
-
 
 def fix_res_link(html, based_url):
     def replace_link(match_obj):
@@ -39,9 +36,7 @@ def http_request(url, data=None, headers=None, is_proxy=False):
     _res = _opener.open(_req)
     return _res  # .code .msg .url .headers .read()
 
-
-
-if __name__ == '__main__':
+def test_http_request():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36",
         "Accept": "*/*",
@@ -55,11 +50,45 @@ if __name__ == '__main__':
         "lang": "python",
         "code": "#!/usr/local/bin/python2.7\n\nprint \"Hello World!\";"
     }
-    r = send_http_request("http://www.compileonline.com/execute_new.php",
+    r = http_request("http://www.compileonline.com/execute_new.php",
                           data,
                           headers)
 
     print r.code, r.msg, r.url
     print r.headers
     print r.read()
+
+def syntax_highlight(md_text):
+    def repl(matchobj):
+        _lang = matchobj.group(2).strip()
+        if not len(_lang): _lang = "plain"
+        _code = "    " + "\n    ".join(matchobj.group(3).split("\n"))
+        return "\n<!--language: %s -->\n\n%s\n" % (_lang, _code)
+
+    _pattern = re.compile(r"""(\n|^)```(.*?)\n(.*?)\n```""", re.DOTALL)
+    return _pattern.sub(repl, md_text)
+
+def test_syntax_highlight():
+    _text = """
+
+this is a test file
+```
+some code here
+other code here
+    and here
+```
+test
+```python
+some code here
+other code here
+    and here
+```
+    """
+    print syntax_highlight(_text)
+
+
+if __name__ == '__main__':
+    # test_http_request()
+    test_syntax_highlight()
+    pass
 

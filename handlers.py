@@ -95,9 +95,8 @@ class gen_md:
         return self.render_md(_query.note, _query.title, _query.based_url)
 
     def render_md(self, md_text, title, based_url):
-        _md_html = markdown(md_text)
+        _md_html = markdown(utils.syntax_highlight(md_text))
         return render.gen_md(title, utils.fix_res_link(_md_html, based_url), RES_BASE_URL_PATH)
-
 
 class exec_lang:
 
