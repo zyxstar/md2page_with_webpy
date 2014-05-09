@@ -101,6 +101,12 @@ function make_toc(content_el ,container_el) {
             var anchor = document.createElement("a");
             anchor.name = "TOC" + sectionNumber; // Name the anchor so we can link
             anchor.id = "TOC" + sectionNumber; // In IE, generated anchors need ids
+            // anchor.href = "#TOC" + sectionNumber;
+            // anchor.className = 'anchor';
+
+            // span = document.createElement("span");
+            // span.className = 'octicon octicon-link';
+            // anchor.appendChild(span);
 
             // Wrap the anchor around a link back to the TOC
             // var link = document.createElement("a");
@@ -110,7 +116,8 @@ function make_toc(content_el ,container_el) {
             // anchor.appendChild(link);
 
             // Insert the anchor and link immediately before the section header
-            section.parentNode.insertBefore(anchor, section);
+            section.insertBefore(anchor, section.firstChild);
+
         }
     }
 
