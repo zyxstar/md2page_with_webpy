@@ -61,7 +61,7 @@ h1,h2,h3,h4,h5,h6{
     clear: both;
     /*background: #eaeaea url('../css/imgs/bg.png');*/
     /*background-color: #F8F8EE;/*#6c615c;#F0F5FD;*/
-    background: #f4f4f4;
+/*    background: #f4f4f4;
     color: #af670a;
 
     padding-left: 15px;
@@ -69,22 +69,48 @@ h1,h2,h3,h4,h5,h6{
     border-bottom: 1px solid silver;
     -moz-border-radius-topleft: 20px;
     -webkit-border-top-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-top-left-radius: 20px;*/
+
+
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #f0ad4e;
+
 }
 
 h1{
     font-size: 2em;
+    margin-left: 0;
+    padding: 20px;
 }
 h2{
     font-size: 1.7em;
+    margin-left: 6px;
+    padding: 16px;
 }
 h3{
     font-size: 1.5em;
+    margin-left: 12px;
+    padding: 12px;
 }
 h4{
     font-size: 1.3em;
+    margin-left: 18px;
+    padding: 8px;
 }
-
+h5{
+    font-size: 1.2em;
+    margin-left: 24px;
+    padding: 5px;
+}
+h6{
+    font-size: 1.1em;
+    margin-left: 30px;
+    padding: 1px;
+}
 a:hover, a:active {
     outline: 0;
 }
@@ -183,7 +209,7 @@ strong em{
     color: #ED6C70;/*red;#D0434D;*/
     font-weight: bold;
 }
-
+/*
 #md_wrap {
     z-index: 0;
 }
@@ -199,11 +225,18 @@ strong em{
 }
 #md_content.wider{
     padding-right: 20px;
+}*/
+#md_content {
+    margin: 10px;
+    padding: 10px 20px 10px 20px;
+    z-index: 0;
 }
 #md_toc_wrap {
-    top: 10px;
-    right: 10px;
+/*    top: 10px;
+    right: 10px;*/
     z-index: 99;
+    padding: 10px !important;
+    background-color: #fff;
 }
 #md_toc_show {
     top: 0;
@@ -212,16 +245,17 @@ strong em{
 }
 
 #md_toc {
-    height: 80%;
-    border-top: 1px dotted #af670a;
-    border-bottom: 1px dotted #af670a;
+    height: 70%;
+    border-top: 1px dotted #999;
+    border-bottom: 1px dotted #999;
     overflow-y: auto;
     overflow-x: hidden;
     white-space: nowrap;
-    width: 260px;
+    /*width: 260px;*/
     padding: 10px 30px 10px 10px;
     font-size: 0.9em;
     line-height: 1.4em;
+    margin: 10px 0;
 }
 #md_content li{
     margin-top: 8px;
@@ -234,18 +268,56 @@ strong em{
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
 }
 
-div#title {
+div.box {
+/*    background-color: #FEFEF5;
+    -webkit-box-shadow: 0 2px 10px #ccc;
+    -moz-box-shadow: 0 2px 10px #ccc;
+    box-shadow: 0 2px 10px #ccc;*/
+
+    z-index: 1;
+ /*position: fixed;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop));*/
+}
+
+div.sidebar{
+  top: 10px;
+  right: 10px;
+  width: 100%;
+}
+
+    /*text-shadow: 3px 3px 4px #DDD;*/
     /*margin: 8px 0 -8px 8px; can affect overlay_div top*/
-    padding: 18px 0 0 28px;
+    /*color: #af670a;*/
+div#header {
+/*    padding: 18px 0 0 38px;
     font-size: 2.5em;
     font-weight: bold;
     line-height: 1.5em;
-    /*color: #af670a;*/
-    /*text-shadow: 3px 3px 4px #DDD;*/
+
     color: rgba(255, 255, 255, 0.3);
     text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+*/
+  position: relative;
+  padding: 30px 15px;
+  margin: 10px 30px;
+  color: #cdbfe3;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  background-color: #6f5499;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+  background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+  background-repeat: repeat-x;
 }
 
+div#header h1{
+  font-size: 2.4em;
+  line-height: 1;
+  border: 0;
+  color: #fff;
+}
 
 .syntaxhighlighter {
     margin: 0 !important;
@@ -319,16 +391,7 @@ a.toclink:hover {
 a.toclink:active {
     background-color: #E85205;
 }
-div.box {
-    background-color: #FEFEF5;
-    position: fixed;
-    z-index: 1;
-    -webkit-box-shadow: 0 2px 10px #ccc;
-    -moz-box-shadow: 0 2px 10px #ccc;
-    box-shadow: 0 2px 10px #ccc;
-    _position: absolute;
-    _top: expression(eval(document.documentElement.scrollTop));
-}
+
 
 blockquote.author-date{
     float: right;
@@ -338,7 +401,7 @@ blockquote.author-date p{
     background: url(../css/imgs/icons.gif) no-repeat;
     background-position: 0 -48px;
     margin: 0;
-    padding: 0 5px 0 20px;
+    padding: 0 0 0 20px;
     height: 16px;
     line-height: 16px;
 }

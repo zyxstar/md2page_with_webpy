@@ -4,6 +4,7 @@ $def with (title,content,res_base_url)
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/vendor/bootstrap/3.2.0/bootstrap.css"/>
     <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/vendor/syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/vendor/syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/> -->
     <link rel='stylesheet' type='text/css' media='screen' href="$res_base_url/css/markdown.css" />
@@ -14,26 +15,48 @@ $def with (title,content,res_base_url)
     <title>$title</title>
 </head>
 <body style='zoom:1'>
+
 <div id="md_wrap">
-  <div id="md_toc_wrap" class='box'>
-    <a onclick="expand_toc('md_toc',1);" class="toclink thin" href="javascript:void(0);">Level1</a>
-    <a onclick="expand_toc('md_toc',2);" class="toclink thin" href="javascript:void(0);">Level2</a>
-    <a onclick="expand_toc('md_toc',3);" class="toclink thin" href="javascript:void(0);">Level3</a>
-    <a onclick="expand_toc('md_toc',6);" class="toclink thin" href="javascript:void(0);">Level4+</a>
-    <div id="md_toc"></div>
-    <a onclick='hide_toc()' class="toclink thin" href="javascript:void(0);">Hide→</a>
-    <a onclick='goto_top()' class="toclink thin" href="javascript:void(0);">Top↑</a>
-    <a class="toclink thin right" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">Help?</a>
-  </div>
-  <div id="md_toc_show" class='box' style='display:none'>
-    <a onclick='show_toc()' class="toclink wider" href="javascript:void(0);">←Show</a>
-  </div>
- <div id="title">$title</div>
- <div id="md_content">
-    $:content
- </div>
+
+    <div class="container-fluid sidebar affix">
+        <div class="row">
+            <div id="md_toc_wrap" class='col-md-offset-9 col-md-3 well hidden-print hidden-xs hidden-sm'>
+              <a onclick="expand_toc('md_toc',1);" class="btn btn-default" href="javascript:void(0);">L1</a>
+              <a onclick="expand_toc('md_toc',2);" class="btn btn-default" href="javascript:void(0);">L2</a>
+              <a onclick="expand_toc('md_toc',3);" class="btn btn-default" href="javascript:void(0);">L3</a>
+              <a onclick="expand_toc('md_toc',6);" class="btn btn-default" href="javascript:void(0);">L4+</a>
+              <div id="md_toc"></div>
+<!--               <a onclick='hide_toc()' class="btn btn-default" href="javascript:void(0);">←Hide</a> -->
+              <a onclick='goto_top()' class="btn btn-default right" href="javascript:void(0);">Top↑</a>
+              <a class="btn btn-default" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">Help?</a>
+            </div>
+            <div id="md_toc_show" class='' style='display:none'>
+              <a onclick='show_toc()' class="btn btn-default" href="javascript:void(0);">Show→</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+              <div class="col-md-9">
+                  <div id="header">
+                     <h1>$title</h1>
+                  </div>
+
+                  <div id="md_content">
+                     $:content
+                  </div>
+              </div>
+        </div>
+    </div>
+
 </div>
+
 <a name="footer"></a>
+
+
 <script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
 
 <script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shBrushAS3.js"></script>
@@ -60,7 +83,7 @@ $def with (title,content,res_base_url)
 
 <script type="text/javascript" src="$res_base_url/vendor/markdown/Markdown.Converter.js"></script>
 
-<script type="text/javascript" src="$res_base_url/vendor/underscore/1.6.0/underscore.js"></script>
+
 
 <script type="text/javascript" src="$res_base_url/js/common.js"></script>
 <script type="text/javascript" src="$res_base_url/js/toc.js"></script>
@@ -71,6 +94,9 @@ $def with (title,content,res_base_url)
 <script type="text/javascript" src="$res_base_url/js/imgbox.js"></script>
 
 <script type="text/javascript" src="$res_base_url/vendor/jquery/1.9.0/jquery.js"></script>
+
+<script type="text/javascript" src="$res_base_url/vendor/underscore/1.6.0/underscore.js"></script>
+<script type="text/javascript" src="$res_base_url/vendor/bootstrap/3.2.0/bootstrap.js"></script>
 <script type="text/javascript" src="$res_base_url/vendor/jquery.lazyload/1.9.3/jquery.lazyload.js"></script>
 <script type="text/javascript" src="$res_base_url/js/md_note.js"></script>
 
