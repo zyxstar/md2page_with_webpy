@@ -21,10 +21,15 @@ $def with (title,content,res_base_url)
     <div class="container-fluid sidebar affix">
         <div class="row">
             <div id="md_toc_wrap" class='col-md-offset-9 col-md-3 well hidden-print hidden-xs hidden-sm'>
+
+             <div class="btn-group">
               <a onclick="expand_toc('md_toc',1);" class="btn btn-default" href="javascript:void(0);">L1</a>
               <a onclick="expand_toc('md_toc',2);" class="btn btn-default" href="javascript:void(0);">L2</a>
               <a onclick="expand_toc('md_toc',3);" class="btn btn-default" href="javascript:void(0);">L3</a>
               <a onclick="expand_toc('md_toc',6);" class="btn btn-default" href="javascript:void(0);">L4+</a>
+             </div>
+
+
               <div id="md_toc"></div>
 <!--               <a onclick='hide_toc()' class="btn btn-default" href="javascript:void(0);">←Hide</a> -->
               <a onclick='goto_top()' class="btn btn-default right" href="javascript:void(0);">Top↑</a>
