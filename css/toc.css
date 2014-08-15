@@ -12,10 +12,11 @@ ul.TOCEntry li {
 }
 
 ul.TOCEntry li a.current{
-    background-color: #FFE7C3;
-    border-radius: 2px;
+    background-color: #563d7c;/*#FFE7C3;*/
+    color: #fff;
+/*    border-radius: 2px;
     -webkit-box-shadow: 1px 1px 2px #ccc;
-    box-shadow: 1px 1px 2px #ccc;
+    box-shadow: 1px 1px 2px #ccc;*/
     display: inline-block;
     height: 22px;
     line-height: 22px;
@@ -45,16 +46,18 @@ ul.TOCEntry li li {
 }
 
 ul.TOCEntry a {
-    color: #af670a;
+    color: #999 ;/*#af670a;*/
     text-decoration: none;
 }
 
 ul.TOCEntry a:hover, a:focus {
-    text-decoration: underline;
-    text-shadow: 1px 1px 1px #ddd;
+    /*text-decoration: underline;*/
+    color: #563d7c;
+    /*text-shadow: 1px 1px 1px #ddd;*/
 }
 
 ul.TOCEntry i.expand {
+    float: left !important;
     display: inline-block;
     width: 16px;
     margin-left: -16px;
