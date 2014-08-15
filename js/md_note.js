@@ -1,5 +1,5 @@
 function alter_toc_height() {
-  document.getElementById('md_toc').style.maxHeight = (document.documentElement.clientHeight - 105) + 'px';
+  document.getElementById('md_toc').style.maxHeight = (document.documentElement.clientHeight - 130) + 'px';
 }
 
 function goto_top() {
