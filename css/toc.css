@@ -57,12 +57,13 @@ ul.TOCEntry a:hover, a:focus {
 }
 
 ul.TOCEntry i.expand {
-    float: left !important;
+    float: none;
     display: inline-block;
     width: 16px;
     margin: 2px 0 0 -16px;
     height: 14px;
     line-height: 16px;
+    cursor: default;
  /*   width: 14px;
     margin-left: -14px;
     height: 14px;
