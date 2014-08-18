@@ -209,23 +209,6 @@ strong em{
     color: #ED6C70;/*red;#D0434D;*/
     font-weight: bold;
 }
-/*
-#md_wrap {
-    z-index: 0;
-}
-
-#md_content {
-    position: relative;
-    margin: 10px;
-    padding: 10px 330px 10px 20px;
-    z-index: 0;
-}
-#md_content.noraml{
-    padding-right: 330px;
-}
-#md_content.wider{
-    padding-right: 20px;
-}*/
 
 blockquote {
   padding: 0 20px;
@@ -233,37 +216,57 @@ blockquote {
   font-size: 0.95em;
 }
 
-#md_content {
-    margin: 10px;
-    padding: 10px 20px 10px 20px;
-    z-index: 0;
-}
+
 #md_toc_wrap {
-/*    top: 10px;
-    right: 10px;*/
     z-index: 99;
-    padding: 10px !important;
+    padding: 10px;
     background-color: #fff;
-}
-#md_toc_show {
-    top: 0;
-    right: 0;
-    z-index: 99;
+    top: 10px;
+    right: 10px;
 }
 
+
+
 #md_toc {
-    height: 70%;
     border-top: 1px dotted #999;
     border-bottom: 1px dotted #999;
     overflow-y: auto;
     overflow-x: hidden;
     white-space: nowrap;
-    /*width: 260px;*/
     padding: 10px 30px 10px 10px;
     font-size: 0.9em;
     line-height: 1.4em;
     margin: 10px 0;
 }
+
+#md_toc_wrap.on_top{
+    margin: 40px 35px 20px 55px;
+}
+
+#md_toc_wrap.on_top #md_toc{
+    overflow: auto;
+}
+
+#md_toc_toggle{
+    padding-right: 45px;
+}
+
+#md_toc_toggle a{
+    float: right;
+}
+
+.goto_top{
+  z-index: 99;
+  right: 2px;
+  bottom: 2px;
+}
+
+#md_content {
+    margin: 10px;
+    padding: 10px 20px 10px 20px;
+    z-index: 0;
+}
+
 #md_content li{
     margin-top: 8px;
 }
@@ -275,39 +278,11 @@ blockquote {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
 }
 
-div.box {
-/*    background-color: #FEFEF5;
-    -webkit-box-shadow: 0 2px 10px #ccc;
-    -moz-box-shadow: 0 2px 10px #ccc;
-    box-shadow: 0 2px 10px #ccc;*/
 
-    z-index: 1;
- /*position: fixed;
-    _position: absolute;
-    _top: expression(eval(document.documentElement.scrollTop));*/
-}
-
-div.sidebar{
-  top: 10px;
-  right: 10px;
-  width: 100%;
-}
-
-    /*text-shadow: 3px 3px 4px #DDD;*/
-    /*margin: 8px 0 -8px 8px; can affect overlay_div top*/
-    /*color: #af670a;*/
-div#header {
-/*    padding: 18px 0 0 38px;
-    font-size: 2.5em;
-    font-weight: bold;
-    line-height: 1.5em;
-
-    color: rgba(255, 255, 255, 0.3);
-    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
-*/
+#header {
   position: relative;
   padding: 30px 15px;
-  margin: 10px 30px;
+  margin: 10px 30px 10px ;
   color: #cdbfe3;
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
   background-color: #6f5499;
@@ -319,7 +294,7 @@ div#header {
   background-repeat: repeat-x;
 }
 
-div#header h1{
+#header h1{
   font-size: 2.4em;
   line-height: 1;
   border: 0;
@@ -366,40 +341,9 @@ div#header h1{
 a.right {
     float: right;
 }
-
-a.toclink,a.toclink:link,a.toclink:hover,a.toclink:active {
-    text-decoration: none;
+a.left {
+    float: left;
 }
-
-a.toclink {
-    /*font-family: cnword;*/
-    display: inline-block;
-    color: #af670a;
-    text-align: center;
-    line-height: 2em;
-}
-
-a.thin{
-    /*font-family: "STXihei" "微软雅黑";*/
-    /*font-weight: bold;*/
-    width: 71.9px;
-}
-
-a.wider {
-    font-weight: bold;
-    width: 80px;
-}
-
-a.toclink:hover {
-    color: #fff;
-    background-color: #F38307;
-}
-
-a.toclink:active {
-    background-color: #E85205;
-}
-
-
 blockquote.author-date{
     float: right;
     border:0;
