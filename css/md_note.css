@@ -346,7 +346,8 @@ a.left {
 }
 blockquote.author-date{
     float: right;
-    border:0;
+    border: 0;
+	padding: 0;
 }
 blockquote.author-date p{
     background: url(../css/imgs/icons.gif) no-repeat;
