@@ -19,6 +19,18 @@ $def with (title,content,res_base_url)
 <div id="md_wrap">
 
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <div id="header" >
+            <h1>$title</h1>
+          </div>
+        </div>
+
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
 
             <div id="md_toc_toggle" class='visible-sm-block visible-xs-block'>
@@ -29,7 +41,7 @@ $def with (title,content,res_base_url)
               <a onclick='goto_top()' class="btn btn-default hidden-md hidden-lg" href="javascript:void(0);">↑</a>
             </div>
 
-            <div id="md_toc_wrap" class="col-md-3 well affix hidden-sm hidden-xs">
+            <div id="md_toc_wrap" class="col-md-3 well well-sm affix hidden-sm hidden-xs">
 
 
              <div class="btn-group">
@@ -39,7 +51,8 @@ $def with (title,content,res_base_url)
               <a onclick="expand_toc('md_toc',6);" class="btn btn-default" href="javascript:void(0);">L4+</a>
 
              </div>
-              <a class="btn btn-default right hidden-md hidden-lg" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">?</a>
+
+              <a class="btn btn-default hidden-md hidden-lg right" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">?</a>
 
               <div id="md_toc"></div>
 
@@ -58,11 +71,7 @@ $def with (title,content,res_base_url)
     <div class="container-fluid">
         <div class="row">
 
-
             <div class="col-md-9">
-                <div id="header">
-                   <h1>$title</h1>
-                </div>
                <div id="md_content">
                    $:content
                 </div>
@@ -72,7 +81,10 @@ $def with (title,content,res_base_url)
 
 </div>
 
-<a name="footer"></a>
+<a id="footer" name="footer"></a>
+
+
+
 
 
 <script type="text/javascript" src="$res_base_url/vendor/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
