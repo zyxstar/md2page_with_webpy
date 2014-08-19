@@ -72,6 +72,7 @@ function render_author_date(){
     var el = document.getElementById('md_content').firstElementChild;
     if(el && el.tagName == 'BLOCKQUOTE')
         addClass(el,'author-date');
+    $('#header').append(el);
 }
 
 function check_top_toc_display () {
