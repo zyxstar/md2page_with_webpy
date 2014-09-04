@@ -148,8 +148,8 @@ function create_run(pre, lang, code, is_run_applet, is_run_online)  {
   }
   else{
     width = screen.availWidth*0.4;
-    if(is_run_applet)
-      create_run_button(pre,"►applet",'lang',width,height,{lang:lang,code:code});
+    // if(is_run_applet)
+      // create_run_button(pre,"►applet",'lang',width,height,{lang:lang,code:code});
       //只能使用url? 不能使用url# 否则打开新页面不会刷新
     if(is_run_online)
       create_run_button(pre,"►",'lang?online',width,height,{lang:lang,code:code});
