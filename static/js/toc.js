@@ -254,6 +254,7 @@ function _change_toc(li, typ) {
 
 function expand_toc(el, level) {
     var ul = document.getElementById(el).getElementsByTagName("UL")[0];
+    if(!ul) return;
     Array.prototype.slice.call(ul.getElementsByTagName("LI")).map(function(li) {
         if (parseInt(li.className.split('_')[1]) >= level)
             _change_toc(li, "close");
