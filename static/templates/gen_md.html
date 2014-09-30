@@ -57,7 +57,10 @@ $def with (title,content,res_base_url)
 
               <div id="md_toc"></div>
 
-              <a class="btn btn-default hidden-sm hidden-xs left" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">?</a>
+              <div class="btn-group">
+               <a class="btn btn-default hidden-sm hidden-xs left" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md">Help</a>
+               <a class="btn btn-default hidden-sm hidden-xs left" href="#comment">Comment</a>
+              </div>
 
               <a onclick='goto_top()' class="btn btn-default right hidden-sm hidden-xs" href="javascript:void(0);">↑</a>
 
@@ -76,11 +79,17 @@ $def with (title,content,res_base_url)
                <div id="md_content">
                    $:content
                 </div>
+                <a id="comment" name="comment"></a>
+                <div class="ds-thread" data-thread-key="$title" data-title="$title" data-url=""></div>
             </div>
         </div>
     </div>
 
 </div>
+
+
+
+
 
 <a id="footer" name="footer"></a>
 
@@ -130,6 +139,8 @@ $def with (title,content,res_base_url)
 <!-- <script type="text/javascript" src="$res_base_url/vendor/bootstrap/3.2.0/bootstrap.js"></script> -->
 <script type="text/javascript" src="$res_base_url/vendor/jquery.lazyload/1.9.3/jquery.lazyload.js"></script>
 <script type="text/javascript" src="$res_base_url/js/md_note.js"></script>
+
+<script type="text/javascript" src="//static.duoshuo.com/embed.js"></script>
 
  </body>
 </html>
