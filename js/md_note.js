@@ -124,6 +124,9 @@ $(document).ready(function(){
     check_top_toc_display();
 });
 
+var duoshuoQuery = {short_name:"chinapub"};
+
+
 
 
 
