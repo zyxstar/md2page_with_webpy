@@ -1,9 +1,12 @@
 function route_lang_handler(pre_el) {
 
-  var code = pre_el.getElementsByTagName('code')[0].innerHTML;
+  if(!pre_el) return;
+  var code_el = pre_el.getElementsByTagName('code')[0];
+  if(!code_el) return;
+
+  var code = code_el.innerHTML;
   var language = "plain";
   var needrun = false;
-
 
   //<!-- language: !js -->
   //`!` mark if need be run
