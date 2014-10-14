@@ -46,6 +46,32 @@ function insertAfter(existEl, newEl) {
         existEl.parentElement.appendChild(newEl);
 }
 
+function findPreviousComment(el, callback){
+    findPreviousNode(el, function(_node){return _node.nodeType !== 3;}, //not text
+        function(_node){
+            if(_node.nodeType !== 8) return; //not comment
+            callback(_node);
+        });
+}
+
+function findPreviousNode(el, predicate, callback){
+    _findNode(el, predicate, callback, true);
+}
+
+function findNextNode(el, predicate, callback){
+     _findNode(el, predicate, callback, false);
+}
+
+function _findNode(el, predicate, callback, is_previous){
+    var sibling = is_previous ? 'previousSibling' : 'nextSibling';
+    for (var node = el[sibling]; node !== null; node = node[sibling]) {
+        if (predicate(node)) {
+            callback(node);
+            break;
+        }
+    }
+}
+
 function addEvent(oTarget, eventType, listener) {
     if (oTarget.addEventListener) {
         oTarget.addEventListener(eventType, listener, false);
