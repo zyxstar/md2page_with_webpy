@@ -88,6 +88,19 @@ function check_top_toc_display () {
     }
 }
 
+// <!-- discuss: #toc1 -->
+function add_discuss(comment_el){
+    var comment_text = $.trim(comment_el.nodeValue);
+    if(comment_text.slice(0,7) !== 'discuss') return;
+    window.duoshuoQuery = {short_name:"chinapub"};
+    var key = $('title').text() + comment_text.slice(comment_text.indexOf("#"));
+    var div_ds = document.createElement('DIV');
+    div_ds.className = 'ds-thread';
+    div_ds.setAttribute('data-thread-key', key);
+    div_ds.setAttribute('data-title', key);
+    insertAfter(comment_el, div_ds);
+}
+
 $(document).ready(function(){
     $(window).on('resize', _.throttle(alter_toc_height, 100));
 
@@ -106,6 +119,9 @@ $(document).ready(function(){
 
     $('#md_content img.lazy').lazyload({threshold : 200, effect : 'fadeIn'});
     $('#md_content pre').each(function(){route_lang_handler(this)();});
+    $('#md_content').contents()
+      .filter(function(){return this.nodeType === 8;})
+      .each(function(){add_discuss(this);});
 
     SyntaxHighlighter.highlight();
     render_author_date();
@@ -124,7 +140,7 @@ $(document).ready(function(){
     check_top_toc_display();
 });
 
-var duoshuoQuery = {short_name:"chinapub"};
+
 
 
 

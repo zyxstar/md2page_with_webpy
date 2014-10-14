@@ -48,8 +48,9 @@ body {
     display: block;
     position: relative;
     background-color: #FFF;
+    font-family: "微软雅黑";
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-/*    font-family: 'Source Sans Pro'!important;*/
 }
 
 div {
@@ -365,12 +366,9 @@ a.left {
     float: left;
 }
 
-/*code{
-    border: 0;
-    background-color: #D6DBDF;
-    border-radius: 4px;
-    color: #2C3E50;
-    font-size: 14px;
-    padding: 2px 4px;
-    white-space: nowrap;
-}*/
+code{
+    border: 2px solid #CCC;
+    background-color: #CCC;
+    border-radius: 3px;
+    color: #1F7246;
+}
