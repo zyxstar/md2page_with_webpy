@@ -89,10 +89,10 @@ function check_top_toc_display () {
 }
 
 // <!-- discuss: #toc1 -->
+duoshuoQuery = {short_name:"chinapub"};
 function add_discuss(comment_el){
     var comment_text = $.trim(comment_el.nodeValue);
     if(comment_text.slice(0,7) !== 'discuss') return;
-    window.duoshuoQuery = {short_name:"chinapub"};
     var key = $('title').text() + comment_text.slice(comment_text.indexOf("#"));
     var div_ds = document.createElement('DIV');
     div_ds.className = 'ds-thread';
