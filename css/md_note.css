@@ -372,3 +372,7 @@ code{
     border-radius: 3px;
     color: #1F7246;
 }
+
+input[type=button]{
+  font-family: sans-serif;
+}

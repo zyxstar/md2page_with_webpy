@@ -82,10 +82,10 @@ function check_top_toc_display () {
       $('#md_toc_wrap').removeClass("affix hidden-sm hidden-xs").addClass("on_top");
       $('#md_toc').css('maxHeight','none');
     }
-    else{
+  else{
       $('#md_toc_wrap').removeClass("on_top").addClass("affix hidden-sm hidden-xs");
       $('#md_toc_wrap').show();
-    }
+  }
 }
 
 // <!-- discuss: #toc1 -->
