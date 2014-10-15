@@ -367,10 +367,12 @@ a.left {
 }
 
 code{
-    border: 2px solid #bbb;
-    background-color: #bbb;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
     border-radius: 3px;
-    color: #fff;
+    margin: 0 2px;
+    color: #8A0D51;
 }
 
 input[type=button]{
