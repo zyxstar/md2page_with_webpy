@@ -19,7 +19,7 @@ $def with (title,content,res_base_url)
 
 <div id="md_wrap">
 
-    <div class="container-fluid">
+    <header class="container-fluid">
       <div class="row">
         <div class="col-md-9">
           <div id="header" >
@@ -29,9 +29,9 @@ $def with (title,content,res_base_url)
 
         <div class="col-md-3"></div>
       </div>
-    </div>
+    </header>
 
-    <div class="container-fluid">
+    <aside class="container-fluid">
         <div class="row">
 
             <div id="md_toc_toggle" class='visible-sm-block visible-xs-block'>
@@ -58,7 +58,7 @@ $def with (title,content,res_base_url)
                <a class="btn btn-default" href="#discuss" title="discuss"><i class="glyphicon glyphicon-comment"></i></a>
              </div>
 
-              <div id="md_toc"></div>
+              <nav id="md_toc"></nav>
 
               <div class="btn-group hidden-sm hidden-xs" style="float:left">
                <a class="btn btn-default" target="_blank" href="/gen_md?src=https%3A%2F%2Fraw2.github.com%2Fzyxstar%2Fmd_note%2Fmaster%2Fdocs%2FManual.md" title="help">?</a>
@@ -71,32 +71,29 @@ $def with (title,content,res_base_url)
 
 
         </div>
-    </div>
+    </aside>
 
-
-    <div class="container-fluid">
+    <article class="container-fluid">
         <div class="row">
 
             <div class="col-md-9">
                <div id="md_content">
                    $:content
-
                 <hr/>
                 <a id="discuss" name="discuss"></a>
                 <div class="ds-thread" data-thread-key="$title" data-title="$title" data-url=""></div>
               </div>
             </div>
         </div>
-    </div>
-
+    </article>
 </div>
 
 
 
 
-
-<a id="footer" name="footer"></a>
-
+<footer>
+  <a id="footer" name="footer"></a>
+</footer>
 
 
 
