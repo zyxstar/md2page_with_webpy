@@ -7,7 +7,7 @@
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -31,11 +31,12 @@
 						'lprintd lprintq lprm ls lsof make man mkdir mkfifo mkisofs mknod more mount mtools ' +
 						'mv netstat nice nl nohup nslookup open op passwd paste pathchk ping popd pr printcap ' +
 						'printenv printf ps pushd pwd quota quotacheck quotactl ram rcp read readonly renice ' +
-						'remsync rm rmdir rsync screen scp sdiff sed select seq set sftp shift shopt shutdown ' +
+						'remsync rm rmdir rsync screen scp sdiff sed select seq set sftp shopt shutdown ' +
 						'sleep sort source split ssh strace su sudo sum symlink sync tail tar tee test time ' +
 						'times touch top traceroute trap tr true tsort tty type ulimit umask umount unalias ' +
-						'uname unexpand uniq units unset unshar useradd usermod users uuencode uudecode v vdir ' +
-						'vi watch wc whereis which who whoami Wget xargs yes'
+						'uname unexpand uniq units unset unshar useradd usermod users uuencode uudecode vdir ' +
+						'vi watch wc apt-get mii-tool info whereis which who whoami Wget xargs yes '+
+						'vim git reboot tree rev tac stat getfacl gunzip bunzip2 rpm yum whatis ldd slocate finger wall groupadd newgrp gpasswd killall pkill strip ifdown ifup route iptables service setenforce'
 						;
 
 		this.regexList = [
