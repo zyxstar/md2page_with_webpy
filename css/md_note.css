@@ -359,6 +359,9 @@ blockquote.author-date p{
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
     font-style: italic !important;
 }
+.syntaxhighlighter .shell.functions{
+    font-weight: bold !important;
+}
 a.right {
     float: right;
 }
