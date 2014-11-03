@@ -360,6 +360,7 @@ blockquote.author-date p{
     font-style: italic !important;
 }
 .syntaxhighlighter .shell.functions{
+    color: #7E461A !important;
     font-weight: bold !important;
 }
 a.right {
