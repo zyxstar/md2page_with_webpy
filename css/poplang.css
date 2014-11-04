@@ -32,3 +32,6 @@
   margin-top: 13px;
   padding: 0 10px;
 }
+body>a>img{
+  display: none;
+}
