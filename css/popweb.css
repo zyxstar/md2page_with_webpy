@@ -68,3 +68,6 @@
 #header{
     /*background: #E8F2FF;*/
 }
+body>a>img{
+  display: none;
+}
