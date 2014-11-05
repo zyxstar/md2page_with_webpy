@@ -142,6 +142,10 @@ function run_lang(){
         frm_online.lang_alias.value=lang_cfg.lang_alias;
         frm_online.code.value=code;
         frm_online.exec_type.value=lang_cfg.exec_type;
+        // frm_online.args.value=storage.args;
+        // frm_online.stdinput.value=storage.stdinput;
+        // frm_online.inputs.value=storage.inputs;
+
         frm_online.submit();
     } else{
         var txt_result = document.getElementById('txt_result');
@@ -152,7 +156,6 @@ function run_lang(){
         }, 60, 1000);
     }
 }
-
 
 addEvent(window,'load',function(){
     init_page();

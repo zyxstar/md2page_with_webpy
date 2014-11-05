@@ -3,11 +3,11 @@ function route_lang_handler(pre_el) {
   // check params
   // if(!pre_el) return;
   var code_el = pre_el.getElementsByTagName('code')[0];
-  if(!code_el) return;
+  if(!code_el) return function(){};
 
   var code = code_el.innerHTML;
   var language = 'plain';
-  var need_run = false;
+  var is_run = false;
 
   //extract language from comment element
   //<!-- language: !js -->
@@ -18,11 +18,11 @@ function route_lang_handler(pre_el) {
     language = RegExp.$1.toLowerCase();
     // console.log(language);
     if (language[0] === '!') {
-      need_run = true;
+      is_run = true;
       language = language.slice(1);
     }else{
       findPreviousComment(_node, function(__node) {
-        if(__node.nodeValue.trim() === 'run') need_run = true;
+        if(__node.nodeValue.trim() === 'run') is_run = true;
       });
     }
   });
@@ -45,17 +45,17 @@ function route_lang_handler(pre_el) {
     // extends
     'web': web_handler,
     'table': table_handler,
+    'js': js_handler,
+    'c': c_handler,
 
     // languages
-    'c': lang_hand1er('c','c',need_run,false,true),
-    'cpp': lang_hand1er('cpp','cpp',need_run,false,true),
-    'csharp': lang_hand1er('csharp','csharp',need_run,true,true),
-    'python': lang_hand1er('python','python',need_run,true,true),
-    'ruby': lang_hand1er('ruby','ruby',need_run,true,true),
-    'js': lang_hand1er('js','js',need_run,false,false),
-    'java': lang_hand1er('java','java',need_run,true,true),
-    'scheme': lang_hand1er('scheme','scheme',need_run,false,true),
-    'bash': lang_hand1er('bash','bash',need_run,false,true),
+    'cpp': lang_hand1er('cpp', is_run),
+    'csharp': lang_hand1er('csharp', is_run),
+    'python': lang_hand1er('python', is_run),
+    'ruby': lang_hand1er('ruby', is_run),
+    'java': lang_hand1er('java', is_run),
+    'scheme': lang_hand1er('scheme', is_run),
+    'bash': lang_hand1er('bash', is_run),
   };
   return handlers_router[language] || default_handler();
 
@@ -112,7 +112,6 @@ function route_lang_handler(pre_el) {
         default:break;
       }
     }
-
     create_run(pre_el, language, webCodes);
     pre_el.parentElement.removeChild(pre_el);
   }
@@ -122,12 +121,27 @@ function route_lang_handler(pre_el) {
     pre_el.parentElement.removeChild(pre_el);
   }
 
-  function lang_hand1er(lang, brush, need_run, need_applet, need_online) {
+  function js_handler(){
+    lang_hand1er('js',is_run, function(code){
+      return {js: code, html: '', css: ''};
+    })();
+  }
+
+  function c_handler(){
+    lang_hand1er('c',is_run,function(code){
+      return {lang: 'c', code: code};
+    })();
+  }
+
+  function lang_hand1er(lang, is_run, setStorage_fn) {
     return function() {
-      pre_el.className = 'brush: ' + brush + ';';
+      pre_el.className = 'brush: ' + lang + ';';
       pre_el.innerHTML = code;
-      if (need_run)
-        create_run(pre_el, lang, code, need_applet, need_online);
+      var storage_values = {lang:lang,code:code};
+      if(setStorage_fn)
+        storage_values = setStorage_fn(code);
+      if (is_run)
+        create_run(pre_el, lang, storage_values);
     };
   }
 
@@ -135,51 +149,42 @@ function route_lang_handler(pre_el) {
     var langs = ['as3','css','delphi','erlang','groovy','html','pascal','perl','php','powershell','scala','shell','sql','xml'];
 
     var cur_lang = langs.filter(function(_lang){return _lang===language;})[0] || 'plain';
-    return lang_hand1er(cur_lang, cur_lang, false, false, false);
+    return lang_hand1er(cur_lang);
   }
 }
-
-
 
 
 //在以本地文件打开时，window.open(url)后的子窗口由于权限问题，父子间不能通信
 //而以网络方式打开时则可以访问
 //以window.open(')的方式，由代码生成子窗口，则没有权限受限
 
-function create_run(pre, lang, code, need_applet, need_online)  {
-
+function create_run(pre, lang, storage_values) {
   var width=screen.availWidth*0.8;
   var height=screen.availHeight*0.8;
 
   if (lang === 'js') {
-    create_run_button(pre,'►','web',width,height,{html:'',js:code,css:''});
+    create_run_button(pre,'web',storage_values,width,height);
   }
   else if(lang==='web'){
-    create_run_button(pre,'►','web',width,height,code);
+    create_run_button(pre,'web',storage_values,width,height);
   }
   else{
     width = screen.availWidth*0.4;
-    // if(need_applet)
-      // create_run_button(pre,'►applet','lang',width,height,{lang:lang,code:code});
-      //只能使用url? 不能使用url# 否则打开新页面不会刷新
-    if(need_online)
-      create_run_button(pre,'►','lang?online',width,height,{lang:lang,code:code});
+    // 只能使用url? 不能使用url# 否则打开新页面不会刷新
+    create_run_button(pre,'lang?online',storage_values,width,height);
   }
-
 }
 
 
-function create_run_button(pre, btn_name, page, width, height, storage_values){
-
+function create_run_button(pre, page, storage_values, width, height){
   function setStorage(values){
     window.md_codeStorage=values;
     if(window.localStorage)
       updateDic(window.localStorage,window.md_codeStorage);
   }
-
   var btn = document.createElement('input');
   btn.type = 'button';
-  btn.value = btn_name;
+  btn.value = '►';
   btn.onclick = function() {
     setStorage(storage_values);
     window.open('/popup/'+page, page, 'top=1,left=1,height='+height+',width='+width+',status=yes,toolbar=no,menubar=no,location=no,resizable=yes');
