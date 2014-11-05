@@ -120,7 +120,7 @@ class exec_lang:
         _data = {
             "lang": _query.lang_alias,
             "code": _query.code,
-            "header": "", "support": "", "util": "", "inputs": _query.inputs, "args": _query.args, "stdinput": ""
+            "header": "", "support": "", "util": "", "inputs": _query.inputs, "args": _query.args, "stdinput": _query.stdinput
         }
         try:
             _res = utils.http_request(
