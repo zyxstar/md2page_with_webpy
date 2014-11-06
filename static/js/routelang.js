@@ -23,6 +23,7 @@ function route_lang_handler(pre_el) {
     }else{
       findPreviousComment(_node, function(__node) {
         if(__node.nodeValue.trim() === 'run') is_run = true;
+        if(__node.nodeValue.trim() === 'utils') window.utils_code = code;
       });
     }
   });
@@ -128,7 +129,21 @@ function route_lang_handler(pre_el) {
   }
 
   function c_handler(){
+    function get_fun_code(fun_nm){
+      var re = new RegExp('/\/\ '+ fun_nm + '(.|[\\n])*?\\n}', 'i');
+      return re.exec(window.utils_code)[0];
+    }
+
     lang_hand1er('c',is_run,function(code){
+      if(window.utils_code){
+
+        var re=/\/\/\=\s*?require\s+?(\S+)/gi;
+        code = code.replace(re,function(){
+            var fun_nm = arguments[1];
+            return get_fun_code(fun_nm);
+        });
+
+      }
       return {lang: 'c', code: code};
     })();
   }
