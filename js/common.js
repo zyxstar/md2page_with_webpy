@@ -94,8 +94,6 @@ function removeEvent(oTarget, eventType, listener) {
     }
 }
 
-
-
 function offsetTopInBody(el) {
     var parent=el.offsetParent,
         sumOfTop=0;
@@ -105,10 +103,6 @@ function offsetTopInBody(el) {
     }
     return sumOfTop+el.offsetTop;
 }
-
-
-
-
 
 
 if (!('trim' in String.prototype)) {
@@ -170,13 +164,11 @@ function draggable(axis, el, startfn, dragfn, stopfn) {
 }
 
 
-
 function updateDic(oldDic,newDic) {
     for(var pro in newDic)
         if (Object.prototype.hasOwnProperty.call(newDic,pro))
             oldDic[pro] = newDic[pro];
 }
-
 
 function retry_run(fn_util_cond, fn_run_body, times, interval) {
     var _times = times || 5;
@@ -190,3 +182,11 @@ function retry_run(fn_util_cond, fn_run_body, times, interval) {
         }
     })();
 }
+
+function get_storage() {
+    if(window.localStorage) return window.localStorage;
+    if(typeof window['_localStorage'] === 'undefined')
+        window['_localStorage'] = {};
+    return window['_localStorage'];
+}
+
