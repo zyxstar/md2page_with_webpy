@@ -23,7 +23,8 @@ function route_lang_handler(pre_el) {
     }else{
       findPreviousComment(_node, function(__node) {
         if(__node.nodeValue.trim() === 'run') is_run = true;
-        if(__node.nodeValue.trim() === 'utils') window.utils_code = code;
+        if(__node.nodeValue.trim() === 'utils')
+          get_storage().utils_code = code;
       });
     }
   });
@@ -129,13 +130,15 @@ function route_lang_handler(pre_el) {
   }
 
   function c_handler(){
+    var utils_code = get_storage().utils_code;
+
     function get_fun_code(fun_nm){
-      var re = new RegExp('/\/\ '+ fun_nm + '(.|[\\n])*?\\n}', 'i');
-      return re.exec(window.utils_code)[0];
+      var re = new RegExp('/\/\ '+ fun_nm + '(.|[\\r\\n])*?[\\r\\n]}', 'i');
+      return re.exec(utils_code)[0];
     }
 
     lang_hand1er('c',is_run,function(code){
-      if(window.utils_code){
+      if(typeof utils_code === 'string'){
 
         var re=/\/\/\=\s*?require\s+?(\S+)/gi;
         code = code.replace(re,function(){
@@ -192,16 +195,16 @@ function create_run(pre, lang, storage_values) {
 
 
 function create_run_button(pre, page, storage_values, width, height){
-  function setStorage(values){
-    window.md_codeStorage=values;
-    if(window.localStorage)
-      updateDic(window.localStorage,window.md_codeStorage);
-  }
+  // function setStorage(values){
+  //   window.md_codeStorage=values;
+  //   if(window.localStorage)
+  //     updateDic(window.localStorage,window.md_codeStorage);
+  // }
   var btn = document.createElement('input');
   btn.type = 'button';
   btn.value = '►';
   btn.onclick = function() {
-    setStorage(storage_values);
+    updateDic(get_storage(), storage_values);
     window.open('/popup/'+page, page, 'top=1,left=1,height='+height+',width='+width+',status=yes,toolbar=no,menubar=no,location=no,resizable=yes');
   };
   insertAfter(pre, btn);

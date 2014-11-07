@@ -161,7 +161,7 @@ addEvent(window,'load',function(){
     init_page();
 
     if(window.opener){
-        var storage=window.localStorage||window.opener.md_codeStorage;
+        var storage=window.localStorage||window.opener['_localStorage'];
         var lang=storage.lang;
         var code=storage.code;
 
