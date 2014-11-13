@@ -117,7 +117,6 @@ function make_toc(content_el ,container_el) {
 
             // Insert the anchor and link immediately before the section header
             section.insertBefore(anchor, section.firstChild);
-
         }
     }
 
