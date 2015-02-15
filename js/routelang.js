@@ -57,6 +57,7 @@ function route_lang_handler(pre_el) {
     'ruby': lang_hand1er('ruby', is_run),
     'java': lang_hand1er('java', is_run),
     'scheme': lang_hand1er('scheme', is_run),
+    'assembly': lang_hand1er('assembly', is_run),
     'bash': lang_hand1er('bash', is_run),
   };
   return handlers_router[language] || default_handler();

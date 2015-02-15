@@ -36,7 +36,7 @@
 						'times touch top traceroute trap tr true tsort tty type ulimit umask umount unalias ' +
 						'uname unexpand uniq units unset unshar useradd usermod users uuencode uudecode vdir ' +
 						'vi watch wc apt-get mii-tool info whereis which who whoami Wget xargs yes '+
-						'vim git reboot tree rev tac stat getfacl gunzip bunzip2 rpm yum whatis ldd slocate finger wall groupadd newgrp gpasswd killall pkill strip ifdown ifup route iptables service setenforce'
+						'vim git reboot tree rev tac stat getfacl gunzip bunzip2 rpm yum whatis ldd slocate finger wall groupadd newgrp gpasswd killall pkill strip ifdown ifup route iptables service setenforce od nm size vmstat gcc cc'
 						;
 
 		this.regexList = [
