@@ -357,7 +357,7 @@ blockquote.author-date p{
     color: #A31515 !important;
 }
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
-    font-style: italic !important;
+    color: gray !important;
 }
 .syntaxhighlighter .shell.functions{
     color: #7E461A !important;
