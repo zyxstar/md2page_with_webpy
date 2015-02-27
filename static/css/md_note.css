@@ -48,7 +48,7 @@ body {
     display: block;
     position: relative;
     background-color: #FFF;
-    font-family: "微软雅黑";
+    font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
@@ -363,7 +363,7 @@ blockquote.author-date p{
 }
 
 .syntaxhighlighter .preprocessor, .syntaxhighlighter .preprocessor a {
-    color: #C7A396 !important;
+    color: #977363 !important;
 }
 
 .syntaxhighlighter .shell.functions{
