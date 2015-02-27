@@ -171,6 +171,8 @@ table th {
 
 body table
 {
+  font-size: 0.96em;
+  line-height: 1.1em;
   display:block;
   overflow:auto;
   width:100%;
@@ -359,6 +361,11 @@ blockquote.author-date p{
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
     color: gray !important;
 }
+
+.syntaxhighlighter .preprocessor, .syntaxhighlighter .preprocessor a {
+    color: #C7A396 !important;
+}
+
 .syntaxhighlighter .shell.functions{
     color: #7E461A !important;
     font-weight: bold !important;
@@ -369,6 +376,8 @@ a.right {
 a.left {
     float: left;
 }
+
+
 
 code{
     border: 0;
