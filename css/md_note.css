@@ -363,7 +363,7 @@ blockquote.author-date p{
 }
 
 .syntaxhighlighter .preprocessor, .syntaxhighlighter .preprocessor a {
-    color: #BC4B00 !important;
+    color: #aa7700 !important;
 }
 
 .syntaxhighlighter .shell.functions{
