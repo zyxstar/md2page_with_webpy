@@ -32,7 +32,7 @@ class usage:
 
     def GET(self):
         try:
-            _sample_note = urlopen(SAMPLE_NOTE_URL, timeout=10).read()
+            _sample_note = urlopen(SAMPLE_NOTE_URL, timeout=60).read()
         except:
             _sample_note = ""
         return render.usage(_sample_note, RES_BASE_URL_PATH)
@@ -84,7 +84,7 @@ class gen_md:
 
     def urlopen_md(self, src, title, encoding):
         try:
-            _md_text = urlopen(src, timeout=10).read()
+            _md_text = urlopen(src, timeout=60).read()
             return self.render_md(unicode(_md_text, encoding), title, src)
         except:
             return format_exc()
