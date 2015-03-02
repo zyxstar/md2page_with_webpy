@@ -4,6 +4,7 @@
 }
 .CodeMirror {
     height: 100% !important;
+    font-family: Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;
 }
 .CodeMirror-activeline-background {
     background: #e8f2ff !important;
