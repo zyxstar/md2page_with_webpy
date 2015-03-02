@@ -26,7 +26,7 @@ all_handlers = globals()
 
 class index:
     def GET(self):
-        return gen_md().urlopen_md(src=SAMPLE_NOTE_URL, title="Manual", encoding='utf-8')
+        return gen_md().urlopen_md(src=SAMPLE_NOTE_URL, title="README", encoding='utf-8')
 
 class usage:
 
