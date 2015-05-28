@@ -64,7 +64,7 @@
                     'call leave ret callq req' +
                     'movabsq movq movsbq movswq movslq movzbq movzwq ' +
                     'cltq cqto cdq ' +
-                    ' mov movt mvn add adc sub sbc rsb rsc mul mla mls umull umlal smull smlal orr eor and bic lsr lsl asr ror rev rev16 revsh rbit uxtb16 uxtb uxth sxtb16 sxtb sxth cmp cmn teq tst mrs msr swi svc ldr str ldm stm swp push pop b bl bx clz qadd qadd8 qadd16 qsub qsub16 qsub8 ssat ssat16 usat usat16 mrc mc '+
+                    ' mov movt mvn add adc sub sbc rsb rsc mul mla mls umull umlal smull smlal orr eor and bic lsr lsl asr ror rev rev16 revsh rbit uxtb16 uxtb uxth sxtb16 sxtb sxth cmp cmn teq tst mrs msr swi svc ldr str ldm stm swp push pop b bl bx clz qadd qadd8 qadd16 qsub qsub16 qsub8 ssat ssat16 usat usat16 mrc mc ldmfd stmfd ldmia '+
 
 
                     '';
@@ -77,7 +77,7 @@
 			{ regex: new RegExp("\%", 'gm'),                            css: 'color2' },
 			{ regex: new RegExp("\\$", 'gm'),                            css: 'color1' }
 			];
-			console.log(new RegExp(this.getKeywords(keywords), 'gm'))
+			//console.log(new RegExp(this.getKeywords(keywords), 'gm'))
 	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
