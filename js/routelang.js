@@ -39,7 +39,8 @@ function route_lang_handler(pre_el) {
     'actionscript3':'as3',
     'htm':'html',
     'pl':'perl',
-    'ps':'powershell'
+    'ps':'powershell',
+    'asm':'assembly'
   };
   language = trans_lang[language] || language;
 
