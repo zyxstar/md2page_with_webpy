@@ -63,9 +63,9 @@ function parse_web_code(ifrm_container,html_code,js_code,css_code){
 
     // ifrm.document.write("<script type='text\/javascript' src='..\/js\/common.js'><\/script>");
     ifrm.document.write("<script type='text\/javascript'>");
-    // ifrm.document.write("addEvent('window','load',function(){\n");
+    ifrm.document.write("window.addEventListener('load',function(){\n");
     ifrm.document.write(js_code);
-    // ifrm.document.write("});\n");
+    ifrm.document.write("}, false);\n");
 
 
     ifrm.document.write('<\/script>');
