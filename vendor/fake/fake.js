@@ -1,7 +1,6 @@
 (function () {
     var old = console.log;
-    var logger = document.createElement("DIV");
-    document.appendChild(logger);
+    var logger = document.body;
     console.log = function (message) {
         old.log(message);
         if (typeof message == 'object') {
