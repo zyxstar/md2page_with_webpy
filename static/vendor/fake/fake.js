@@ -2,12 +2,16 @@
 window.addEventListener('load', function(){
     var old = console.log;
     var logger = document.body;
-    console.log = function(message) {
-        old.apply(console, Array.prototype.slice.call(arguments));
-        if (typeof message == 'object') {
-            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+    console.log = function() {
+        var args = Array.prototype.slice.call(arguments);
+        old.apply(console, args);
+        if (args.length === 1){
+          args = args[0];
+        }
+        if (typeof args == 'object') {
+            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(args) : args) + '<br />';
         } else {
-            logger.innerHTML += message + '<br />';
+            logger.innerHTML += args + '<br />';
         }
     };
 }, false);
