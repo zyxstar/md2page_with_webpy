@@ -2,7 +2,7 @@
     var old = console.log;
     var logger = document.body;
     console.log = function (message) {
-        old(message);
+        //old.call(null, message);
         if (typeof message == 'object') {
             logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
         } else {
