@@ -392,3 +392,8 @@ code{
 input[type=button]{
   font-family: fantasy;
 }
+
+body > iframe{
+  opacity:0;
+  display:none;
+}
