@@ -381,12 +381,13 @@ a.left {
 
 
 code{
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    background-color: #eee;
-    border-radius: 3px;
-    margin: 0 2px;
-    color: #8A0D51;
+  font-family: sans-serif;
+  display: inline-block;
+  border: 3px solid #eee;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 2px;
+  color: #8A0D51;
 }
 
 input[type=button]{
