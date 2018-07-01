@@ -6,7 +6,7 @@ from lib import handlers
 app_root = os.path.dirname(__file__)
 
 handlers.RES_BASE_URL_PATH = "/static"
-handlers.SAMPLE_NOTE_URL = "https://gitcafe.com/zyxstar/md_note/raw/master/README.md"
+handlers.SAMPLE_NOTE_URL = "https://raw.githubusercontent.com/zyxstar/md_note/master/README.md"
 handlers.render = web.template.render(os.path.join(app_root,'static/templates'))
 
 web.config.debug = True
@@ -24,5 +24,5 @@ else:
 if __name__ == "__main__":
     import sys
     if len(sys.argv) == 1:
-        sys.argv.append('6273')
+        sys.argv.append('8059')
     app.run()
