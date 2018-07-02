@@ -23,8 +23,8 @@ else:
 
 
 if __name__ == "__main__":
-    # import sys
-    # if len(sys.argv) == 1:
-    #     sys.argv.append('8059')
-    web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
+    import sys
+    if len(sys.argv) == 1:
+        sys.argv.append('8059')
+    # web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
     app.run()
