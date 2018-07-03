@@ -8,6 +8,31 @@ sudo pip install markdown
 
 #sudo apt-get install spawn-fcgi
 #sudo pip install flup
+
+sudo apt-get install supervisor
+```
+
+
+
+
+# 修改supervisord.conf
+
+```
+#cat /etc/supervisord/supervisord.conf
+sudo vim /etc/supervisor/conf.d/md2page.conf
+
+; /etc/supervisor/conf.d/md2page.conf
+[program:md2page.conf]
+
+command     = /usr/bin/env python /var/www/md2page_with_webpy/home.py
+directory   = /var/www/md2page_with_webpy
+user        = www
+startsecs   = 3
+
+redirect_stderr         = true
+stdout_logfile_maxbytes = 50MB
+stdout_logfile_backups  = 10
+stdout_logfile          = /var/www/md2page_with_webpy/app.log
 ```
 
 # 修改nginx.conf
@@ -55,6 +80,19 @@ sudo pip install markdown
 #关闭
 #kill `pgrep -f "python /var/www/md2page_with_webpy/home.py"`
 
-nohup python home.py 2>&1 &
+#nohup python home.py 2>&1 &
+
+#sudo supervisord -c /etc/supervisor/supervisord.conf                       通过配置文件启动supervisor
+#sudo supervisorctl -c /etc/supervisor/supervisord.conf status              查看状态
+#sudo supervisorctl -c /etc/supervisor/supervisord.conf reload              重新载入配置文件
+#sudo supervisorctl -c /etc/supervisor/supervisord.conf start [all]|[x]     启动所有/指定的程序进程
+#sudo supervisorctl -c /etc/supervisor/supervisord.conf stop [all]|[x]      关闭所有/指定的程序进程
+
+sudo supervisord -c /etc/supervisor/supervisord.conf 
+sudo supervisorctl -c /etc/supervisor/supervisord.conf reload 
+
+#sudo supervisorctl start md2page
+
+
 ```
 
