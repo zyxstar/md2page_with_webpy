@@ -103,4 +103,4 @@ function render(ele, talks){
     process(eles[i]);
   }
 })();
-
+//var tmp = document.createElement('script');tmp.src='http://doc.pigfeet.cn/static/js/forumlchina.js';document.documentElement.appendChild(tmp);
